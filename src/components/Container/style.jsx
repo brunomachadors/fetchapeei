@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const Search = styled.div`
-  background-color: lightgray;
-  height: 160px;
-  width: 40%;
+export const StyledContainer = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
 `;

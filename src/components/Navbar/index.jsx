@@ -6,6 +6,7 @@ import { Select } from "../Select/style";
 import Breeds from "../Menu/Breeds";
 import Favourites from "../Menu/Favourites";
 import Photos from "../Menu/Photos";
+import SelectDropdown from "../Select";
 
 function Navbar() {
   return (
@@ -17,7 +18,9 @@ function Navbar() {
         <Photos />
       </Menu>
       <Search>Search</Search>
-      <Select>Select</Select>
+      <Select>
+        <SelectDropdown />
+      </Select>
     </NavbarContainer>
   );
 }

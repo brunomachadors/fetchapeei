@@ -1,12 +1,12 @@
-import Content from '../../components/Content';
-import Navbar from '../../components/Navbar';
-import { Page } from '../../components/ModelPage/style';
+import Navbar from "../../components/Navbar";
+import { Page } from "../../components/ModelPage/style";
+import Container from "../../components/Container";
 
 function LandingPage() {
   return (
     <Page>
       <Navbar></Navbar>
-      <Content></Content>
+      <Container></Container>
     </Page>
   );
 }

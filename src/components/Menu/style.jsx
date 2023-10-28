@@ -4,6 +4,6 @@ export const Menu = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 37%;
+  width: 30%;
   height: 160px;
 `;
