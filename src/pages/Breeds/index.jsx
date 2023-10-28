@@ -2,13 +2,14 @@ import Content from '../../components/Content';
 import Navbar from '../../components/Navbar';
 import { Page } from '../../components/ModelPage/style';
 
-function LandingPage() {
+function Breeds() {
   return (
     <Page>
-      <Navbar />
+      <Navbar selectText="SELECT BREEDS" selectedPage={'breeds'} />
+      <h1>Breeds</h1>
       <Content />
     </Page>
   );
 }
 
-export default LandingPage;
+export default Breeds;

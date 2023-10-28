@@ -1,26 +1,61 @@
-import { NavbarContainer } from './style';
+//styled components
+import {
+  NavbarContainer,
+  PawIcon,
+  RegularText,
+  TextContainer,
+  YellowText,
+} from './style';
 import { Landing } from '../Landing/style';
 import { Menu } from '../Menu/style';
-
 import { Select } from '../Select/style';
-import Breeds from '../Menu/Breeds';
-import Favourites from '../Menu/Favourites';
-import Photos from '../Menu/Photos';
 import { Search } from '../Search';
+import {
+  BreedsButton,
+  FavouritesButton,
+  LinkNavbar,
+  LinkNavbarAlternative,
+  PhotosButton,
+} from '../Tabs/style';
 
-function Navbar() {
+//Icons
+import pawIcon from '../../assets/icons/paw_4.svg';
+
+//Dependencies
+import PropTypes from 'prop-types';
+
+function Navbar({ selectText = '', selectedPage }) {
   return (
     <NavbarContainer>
-      <Landing>FETCH A PEE I</Landing>
+      <Landing>
+        <PawIcon src={pawIcon} />
+        <LinkNavbarAlternative to={'/'}>
+          <RegularText>FETCH A</RegularText>
+          <TextContainer>
+            <YellowText>PEE</YellowText> <RegularText>I</RegularText>
+          </TextContainer>
+        </LinkNavbarAlternative>
+      </Landing>
       <Menu>
-        <Breeds />
-        <Favourites />
-        <Photos />
+        <BreedsButton selected={selectedPage === 'breeds'}>
+          <LinkNavbar to={'/breeds'}>BREEDS</LinkNavbar>
+        </BreedsButton>
+        <FavouritesButton selected={selectedPage === 'favourites'}>
+          <LinkNavbar to={'/favourites'}>FAVOURITES</LinkNavbar>
+        </FavouritesButton>
+        <PhotosButton selected={selectedPage === 'photos'}>
+          <LinkNavbar to={'/photos'}>PHOTOS</LinkNavbar>
+        </PhotosButton>
       </Menu>
-      <Search></Search>
-      <Select>SELECT</Select>
+      <Search />
+      <Select>{selectText}</Select>
     </NavbarContainer>
   );
 }
+
+Navbar.propTypes = {
+  selectText: PropTypes.string,
+  selectedPage: PropTypes.string,
+};
 
 export default Navbar;

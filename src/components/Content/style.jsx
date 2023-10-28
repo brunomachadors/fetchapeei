@@ -1,5 +1,9 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 export const ContentContainer = styled.div`
-  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

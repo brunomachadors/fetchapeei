@@ -11,6 +11,7 @@ export const SearchContainer = styled.div`
 `;
 
 export const SearchInput = styled.input`
+  color: black;
   background-color: rgba(253, 243, 233, 1);
   width: 70%;
   max-width: 480px;
