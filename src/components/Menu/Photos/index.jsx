@@ -1,7 +1,7 @@
-import { PhotosBtn } from "./style";
+import { PhotosBtn } from './style';
 
 function Photos() {
-  return <PhotosBtn>Photos</PhotosBtn>;
+  return <PhotosBtn>PHOTOS</PhotosBtn>;
 }
 
 export default Photos;

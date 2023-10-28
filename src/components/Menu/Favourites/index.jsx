@@ -1,7 +1,7 @@
-import { FavouritesBtn } from "./style";
+import { FavouritesBtn } from './style';
 
 function Favourites() {
-  return <FavouritesBtn>Favourites</FavouritesBtn>;
+  return <FavouritesBtn selected>FAVOURITES</FavouritesBtn>;
 }
 
 export default Favourites;

@@ -1,7 +1,7 @@
-import { BreedsBtn } from "./style";
+import { BreedsBtn } from './style';
 
 function Breeds() {
-  return <BreedsBtn>Breeds</BreedsBtn>;
+  return <BreedsBtn>BREEDS</BreedsBtn>;
 }
 
 export default Breeds;
