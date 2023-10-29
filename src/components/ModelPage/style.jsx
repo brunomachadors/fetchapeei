@@ -7,4 +7,10 @@ export const Page = styled.div`
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
+
+  @media (max-width: 1080px) {
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 `;

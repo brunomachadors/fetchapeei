@@ -9,4 +9,12 @@ export const Select = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #303030;
+  text-decoration: gold underline;
+  text-decoration-skip-ink: 20px;
+
+  @media (max-width: 1080px) {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+  }
 `;

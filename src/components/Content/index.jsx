@@ -6,7 +6,6 @@ export function LandingContent() {
   return (
     <ContentContainer>
       <ContentInfo>CONTENT INFO</ContentInfo>
-      <Sidebar></Sidebar>
     </ContentContainer>
   );
 }

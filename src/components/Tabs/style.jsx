@@ -12,6 +12,10 @@ export const TabButton = styled.button`
   border: none;
   border-left: #a0a0a0 0.2px solid;
   color: black;
+
+  @media (max-width: 1080px) {
+    width: 100%;
+  }
 `;
 
 export const TabButtonDark = styled.button`
@@ -27,6 +31,10 @@ export const TabButtonDark = styled.button`
   border: none;
   border-left: #a0a0a0 0.2px solid;
   gap: 10px;
+
+  @media (max-width: 1080px) {
+    width: 100%;
+  }
 `;
 
 export const Menu = styled.div`
