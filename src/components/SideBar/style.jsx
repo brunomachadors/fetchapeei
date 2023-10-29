@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Bar = styled.div`
   background-color: rgba(38, 38, 38, 1);
-  width: 320px;
+  width: 15%;
   height: 100%;
   display: flex;
   align-items: center;

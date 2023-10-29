@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SearchContainer = styled.div`
   background-color: rgba(253, 243, 233, 1);
   height: 160px;
-  width: 100%;
+  width: 85%;
   max-width: 1507px;
   display: flex;
   align-items: center;
@@ -14,7 +14,7 @@ export const SearchContainer = styled.div`
 export const SearchInput = styled.input`
   color: black;
   background-color: rgba(253, 243, 233, 1);
-  width: 70%;
+  width: 100%;
   max-width: 480px;
   height: 30px;
   position: relative;

@@ -1,23 +1,9 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
-export const LinkNavbarAlternative = styled(Link)`
-  color: white;
-  font-size: 20px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  text-decoration: none;
-  margin: 0 30px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-`;
 
 export const TabButton = styled.button`
   font-size: 18px;
-  width: 160px;
+  width: 10%;
+  min-width: 160px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -30,7 +16,8 @@ export const TabButton = styled.button`
 
 export const TabButtonDark = styled.button`
   font-size: 18px;
-  width: 320px;
+  width: 15%;
+  min-width: 160px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -46,7 +33,7 @@ export const Menu = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 480px;
+  width: 70%;
   height: 160px;
 `;
 

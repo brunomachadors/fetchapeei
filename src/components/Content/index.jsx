@@ -1,6 +1,6 @@
-import Sidebar from "../SideBar";
-import { AdditionalInfo, Description, Title } from "../SideBar/style";
-import { ContentContainer, ContentInfo } from "./style";
+import Sidebar from '../SideBar';
+import { AdditionalInfo, Description, Title } from '../SideBar/style';
+import { ContentContainer, ContentInfo } from './style';
 
 export function LandingContent() {
   return (
@@ -49,3 +49,5 @@ export function PhotosContent() {
     </ContentContainer>
   );
 }
+
+export default LandingContent;

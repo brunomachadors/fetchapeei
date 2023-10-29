@@ -15,8 +15,8 @@ function Navbar({ selectText = '', selectedPage }) {
         <BreedsTab selectedPage={selectedPage}></BreedsTab>
         <FavouritesTab selectedPage={selectedPage}></FavouritesTab>
         <PhotosTab selectedPage={selectedPage}></PhotosTab>
+        <Search />
       </Menu>
-      <Search />
       <Select>{selectText}</Select>
     </NavbarContainer>
   );
