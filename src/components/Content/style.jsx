@@ -5,5 +5,13 @@ export const ContentContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+`;
+
+export const ContentInfo = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
 `;

@@ -4,6 +4,7 @@ export const SearchContainer = styled.div`
   background-color: rgba(253, 243, 233, 1);
   height: 160px;
   width: 100%;
+  max-width: 1507px;
   display: flex;
   align-items: center;
   justify-content: flex-end;

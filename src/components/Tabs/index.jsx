@@ -21,8 +21,9 @@ export function LandingTab() {
     <TabButtonDark onClick={handleClick}>
       <PawIcon src={pawIcon} />
       <TextContainerColumn>
-        <RegularText>FETCH A</RegularText>
+        <RegularText>FETCH </RegularText>
         <TextContainerRow>
+          <RegularText>A</RegularText>
           <YellowText>PEE</YellowText> <RegularText>I</RegularText>
         </TextContainerRow>
       </TextContainerColumn>

@@ -34,7 +34,7 @@ export const TabButtonDark = styled.button`
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: row;
   background-color: #303030;
   border: none;
@@ -51,7 +51,7 @@ export const Menu = styled.div`
 `;
 
 export const PawIcon = styled.img`
-  width: 25px;
+  width: 35px;
   position: relative;
   filter: invert(1);
 `;
@@ -65,7 +65,7 @@ export const TextContainerRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 15px;
+  gap: 5px;
 `;
 
 export const YellowText = styled.div`
