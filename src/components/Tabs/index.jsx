@@ -1,25 +1,82 @@
-import { BreedsButton, FavouritesButton, PhotosButton } from './style';
+import { useNavigate } from 'react-router-dom';
+import {
+  PawIcon,
+  RegularText,
+  TabButton,
+  TabButtonDark,
+  TextContainerColumn,
+  TextContainerRow,
+  YellowText,
+} from './style';
+import PropTypes from 'prop-types';
 
-export function BreedsTab() {
+import pawIcon from '../../assets/icons/paw_4.svg';
+
+export function LandingTab() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/');
+  };
   return (
-    <BreedsButton to="/breeds" className="selected">
+    <TabButtonDark onClick={handleClick}>
+      <PawIcon src={pawIcon} />
+      <TextContainerColumn>
+        <RegularText>FETCH A</RegularText>
+        <TextContainerRow>
+          <YellowText>PEE</YellowText> <RegularText>I</RegularText>
+        </TextContainerRow>
+      </TextContainerColumn>
+    </TabButtonDark>
+  );
+}
+
+export function BreedsTab({ selectedPage }) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/breeds');
+  };
+
+  return (
+    <TabButton selected={selectedPage === 'breeds'} onClick={handleClick}>
       BREEDS
-    </BreedsButton>
+    </TabButton>
   );
 }
 
-export function FavouritesTab() {
+BreedsTab.propTypes = {
+  selectedPage: PropTypes.string,
+};
+
+export function FavouritesTab({ selectedPage }) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/favourites');
+  };
+
   return (
-    <FavouritesButton to="/favourites" className="selected">
+    <TabButton selected={selectedPage === 'favourites'} onClick={handleClick}>
       FAVOURITES
-    </FavouritesButton>
+    </TabButton>
   );
 }
 
-export function PhotosTab() {
+FavouritesTab.propTypes = {
+  selectedPage: PropTypes.string,
+};
+
+export function PhotosTab({ selectedPage }) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/photos');
+  };
+
   return (
-    <PhotosButton to="/photos" className="selected">
+    <TabButton selected={selectedPage === 'photos'} onClick={handleClick}>
       PHOTOS
-    </PhotosButton>
+    </TabButton>
   );
 }
+
+PhotosTab.propTypes = {
+  selectedPage: PropTypes.string,
+};

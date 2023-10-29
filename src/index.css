@@ -1,11 +1,11 @@
 @font-face {
   font-family: Dog;
-  src: url(../public/fonts/PlaypenSans-VariableFont_wght.ttf);
+  src: url(/fonts/PlaypenSans-VariableFont_wght.ttf);
 }
 
 @font-face {
   font-family: Play;
-  src: url(../public/fonts/PlayfairDisplay-Regular.ttf);
+  src: url(/fonts/PlayfairDisplay-Regular.ttf);
 }
 
 :root {
