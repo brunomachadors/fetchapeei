@@ -23,7 +23,7 @@ yarn dev
 
 ## OUR DOGS
 
-![PANTUFA](public/Pantufa.jpeg)
+![PANTUFA](public/Pantufa.png)
 
 ## DOG API
 
