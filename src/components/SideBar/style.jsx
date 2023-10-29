@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Bar = styled.div`
   background-color: rgba(38, 38, 38, 1);
@@ -8,6 +8,7 @@ export const Bar = styled.div`
   align-items: center;
   justify-content: center;
   color: white;
+  box-sizing: border-box;
 `;
 
 export const Title = styled.h1``;
