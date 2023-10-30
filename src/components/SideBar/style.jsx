@@ -19,4 +19,4 @@ export const Title = styled.h1``;
 
 export const Description = styled.p``;
 
-export const AdditionalInfo = styled.tbody``;
+export const AdditionalInfo = styled.p``;

@@ -23,12 +23,17 @@ yarn dev
 
 ## OUR DOGS
 
+### PANTUFA
+
 ![PANTUFA](public/PANTUFA.png)
 
-## DOG API
+### DOG API
 
-[DOG API](https://www.thedogapi.com/)
-[Documentation](https://developers.thedogapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=8FfZAkNzs)
+- [DOG API](https://www.thedogapi.com/)
+- [Documentation](https://developers.thedogapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=8FfZAkNzs)
+- [Postman Collection](https://documenter.getpostman.com/view/5578104/2s935hRnak)
+
+## All packages
 
 ### React + Vite
 
