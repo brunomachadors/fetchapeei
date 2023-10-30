@@ -1,6 +1,8 @@
 import Sidebar from '../SideBar';
 import { AdditionalInfo, Description, Title } from '../SideBar/style';
 import { ContentContainer, ContentInfo } from './style';
+import { getAllBreeds } from '../../api/breeds';
+import { useEffect, useState } from 'react';
 
 export function LandingContent() {
   return (
@@ -10,19 +12,35 @@ export function LandingContent() {
         <Description>Landing Content</Description>
         <AdditionalInfo>Additional information Landing</AdditionalInfo>
       </ContentInfo>
+      <Sidebar></Sidebar>
     </ContentContainer>
   );
 }
 
 export function BreedsContent() {
+  const [breeds, setBreeds] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await getAllBreeds();
+        setBreeds(data);
+      } catch (error) {
+        console.error('Error fetching breeds:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <ContentContainer>
       <ContentInfo>
         <Title>Breeds</Title>
-        <Description>Breeds Description</Description>
+        <Description>test</Description>
         <AdditionalInfo>Additional information Breeds</AdditionalInfo>
       </ContentInfo>
-      <Sidebar></Sidebar>
+      <Sidebar list={breeds}></Sidebar>
     </ContentContainer>
   );
 }
