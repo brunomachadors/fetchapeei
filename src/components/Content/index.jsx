@@ -5,7 +5,11 @@ import { ContentContainer, ContentInfo } from './style';
 export function LandingContent() {
   return (
     <ContentContainer>
-      <ContentInfo>CONTENT INFO</ContentInfo>
+      <ContentInfo>
+        <Title>Landing</Title>
+        <Description>Landing Content</Description>
+        <AdditionalInfo>Additional information Landing</AdditionalInfo>
+      </ContentInfo>
     </ContentContainer>
   );
 }
