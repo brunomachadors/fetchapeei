@@ -21,7 +21,7 @@ export const ContentInfo = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
 

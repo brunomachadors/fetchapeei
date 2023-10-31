@@ -5,18 +5,76 @@ export const Bar = styled.div`
   width: 17.6%;
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
   color: white;
+  overflow-y: auto;
+  box-sizing: border-box;
 
   @media (max-width: 1080px) {
     height: 25%;
     width: 100%;
+    justify-content: flex-start;
   }
 `;
 
-export const Title = styled.h1``;
+export const Title = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  margin-top: 25px;
+  @media (max-width: 1080px) {
+    font-size: 30px;
+  }
+`;
 
-export const Description = styled.p``;
+export const Description = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 
 export const AdditionalInfo = styled.p``;
+
+export const List = styled.ul`
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  color: white;
+  :hover {
+    border-left: 4px solid gold;
+  }
+
+  @media (max-width: 1080px) {
+    display: flex;
+    font-size: 10px;
+  }
+`;
+
+export const Button = styled.button`
+  width: 100%;
+
+  :hover {
+    border: none;
+  }
+`;
+
+export const Item = styled.li`
+  width: 100%;
+  margin-top: 30px;
+  color: white;
+
+  :hover {
+    border: none;
+  }
+`;
+
+export const Name = styled.p`
+  :hover {
+    border: none;
+  }
+`;
