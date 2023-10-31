@@ -1,10 +1,12 @@
 import axios from 'axios';
+import { getBaseApiUrl } from '../../utils/getEnvVariables';
+import { API_PATHS } from '../../constants';
 
 export const getAllBreeds = async () => {
   let config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: 'https://api.thedogapi.com/v1/breeds',
+    url: getBaseApiUrl() + API_PATHS.breeds,
     headers: {
       'Content-Type': 'application/json',
     },
