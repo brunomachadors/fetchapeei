@@ -17,12 +17,21 @@ export const Bar = styled.div`
   }
 `;
 
-export const Title = styled.h1``;
+export const Title = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  margin-top: 25px;
+  @media (max-width: 1080px) {
+    font-size: 30px;
+  }
+`;
 
 export const Description = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const AdditionalInfo = styled.p``;

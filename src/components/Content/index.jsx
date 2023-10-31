@@ -3,6 +3,7 @@ import { AdditionalInfo, Description, Title } from '../SideBar/style';
 import { ContentContainer, ContentInfo } from './style';
 import { getAllBreeds } from '../../api/breeds';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 export function LandingContent() {
   return (
@@ -19,6 +20,7 @@ export function LandingContent() {
 
 export function BreedsContent() {
   const [breeds, setBreeds] = useState([]);
+  const breed = useSelector((state) => state.breed.selectedBreed);
 
   useEffect(() => {
     async function fetchData() {
@@ -36,8 +38,8 @@ export function BreedsContent() {
   return (
     <ContentContainer>
       <ContentInfo>
-        <Title>Breeds</Title>
-        <Description>test</Description>
+        <Title>{breed.name}</Title>
+        <Description>weight: {breed.weight.metric}</Description>
         <AdditionalInfo>Additional information Breeds</AdditionalInfo>
       </ContentInfo>
       <Sidebar list={breeds}></Sidebar>

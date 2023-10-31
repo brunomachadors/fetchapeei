@@ -1,20 +1,20 @@
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Bar, Button, Item, List, Name } from './style';
 import PropTypes from 'prop-types';
+import { select } from '../../store/breed/breed';
 
 function Sidebar({ list = [] }) {
-  const [selectedItem, setSelectedItem] = useState(null);
-
-  const handleItemClick = (item) => {
-    setSelectedItem(item);
-    console.log(item);
-  };
+  const dispatch = useDispatch();
 
   return (
     <Bar>
       <List>
         {list.map((item) => (
-          <Button key={item.id} onClick={() => handleItemClick(item)}>
+          <Button
+            key={item.id}
+            aria-label="select breed"
+            onClick={() => dispatch(select(item))}
+          >
             <Item>
               <Name>{item.name}</Name>
             </Item>
