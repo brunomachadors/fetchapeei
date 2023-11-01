@@ -53,7 +53,7 @@ export function BreedsContent() {
           </DescriptionRow>
           <DescriptionRow>
             <DescriptionLabel>Breed for:</DescriptionLabel>
-            <DescriptionValue>{breed.bred_for}</DescriptionValue>
+            <DescriptionValue>{breed.bred_for || 'Unknown'}</DescriptionValue>
           </DescriptionRow>
           <DescriptionRow>
             <DescriptionLabel>Life span:</DescriptionLabel>
