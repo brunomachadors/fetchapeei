@@ -10,10 +10,10 @@ export const SearchContainer = styled.div`
   gap: 30px;
 
   @media (max-width: 1080px) {
-    width: 100%;
-    height: 500px;
-    gap: 5px;
-    justify-content: center;
+    width: 600%;
+    height: 180px;
+    gap: 15px;
+    justify-content: flex-end;
   }
 `;
 
@@ -38,6 +38,5 @@ export const LensIcon = styled.img`
   margin-right: 30px;
 
   @media (max-width: 1080px) {
-    margin-right: 0px;
   }
 `;

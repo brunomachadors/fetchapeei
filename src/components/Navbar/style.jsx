@@ -9,6 +9,7 @@ export const NavbarContainer = styled.div`
 
   @media (max-width: 1080px) {
     flex-direction: column;
+    margin-top: 0px;
   }
 `;
 
@@ -21,7 +22,7 @@ export const Menu = styled.div`
 
   @media (max-width: 1080px) {
     width: 100%;
-    flex-direction: column;
+    flex-direction: row;
     height: 210px;
   }
 `;

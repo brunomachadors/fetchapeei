@@ -11,30 +11,13 @@ export const Bar = styled.div`
   box-sizing: border-box;
 
   @media (max-width: 1080px) {
-    height: 25%;
+    height: 900px;
     width: 100%;
-    justify-content: flex-start;
+    justify-content: flex-end;
+    position: relative;
+    margin-bottom: -150px;
   }
 `;
-
-export const Title = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 50px;
-  margin-top: 25px;
-  @media (max-width: 1080px) {
-    font-size: 30px;
-  }
-`;
-
-export const Description = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-export const AdditionalInfo = styled.p``;
 
 export const List = styled.ul`
   list-style-type: none;
@@ -51,7 +34,7 @@ export const List = styled.ul`
 
   @media (max-width: 1080px) {
     display: flex;
-    font-size: 10px;
+    font-size: 20px;
   }
 `;
 

@@ -15,13 +15,14 @@ export const TabButton = styled.button`
 
   @media (max-width: 1080px) {
     width: 100%;
+    height: 180px;
   }
 `;
 
 export const TabButtonDark = styled.button`
   font-size: 18px;
   width: 15%;
-  min-width: 160px;
+
   height: 100%;
   display: flex;
   align-items: center;
@@ -34,6 +35,8 @@ export const TabButtonDark = styled.button`
 
   @media (max-width: 1080px) {
     width: 100%;
+    position: relative;
+    padding: 10px;
   }
 `;
 

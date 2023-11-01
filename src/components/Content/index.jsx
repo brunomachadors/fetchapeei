@@ -1,5 +1,12 @@
 import Sidebar from '../SideBar';
-import { AdditionalInfo, Description, Title } from '../SideBar/style';
+import {
+  AdditionalInfo,
+  Description,
+  DescriptionLabel,
+  DescriptionRow,
+  DescriptionValue,
+  Title,
+} from './style';
 import { ContentContainer, ContentInfo } from './style';
 import { getAllBreeds } from '../../api/breeds';
 import { useEffect, useState } from 'react';
@@ -39,8 +46,36 @@ export function BreedsContent() {
     <ContentContainer>
       <ContentInfo>
         <Title>{breed.name}</Title>
-        <Description>weight: {breed.weight.metric}</Description>
-        <AdditionalInfo>Additional information Breeds</AdditionalInfo>
+        <Description>
+          <DescriptionRow>
+            <DescriptionLabel>Name:</DescriptionLabel>
+            <DescriptionValue>{breed.name}</DescriptionValue>
+          </DescriptionRow>
+          <DescriptionRow>
+            <DescriptionLabel>Breed for:</DescriptionLabel>
+            <DescriptionValue>{breed.bred_for}</DescriptionValue>
+          </DescriptionRow>
+          <DescriptionRow>
+            <DescriptionLabel>Life span:</DescriptionLabel>
+            <DescriptionValue>{breed.life_span}</DescriptionValue>
+          </DescriptionRow>
+          <DescriptionRow>
+            <DescriptionLabel>Temperament:</DescriptionLabel>
+            <DescriptionValue>{breed.temperament}</DescriptionValue>
+          </DescriptionRow>
+          <DescriptionRow>
+            <DescriptionLabel>Origin:</DescriptionLabel>
+            <DescriptionValue>{breed.origin || 'Unknown'}</DescriptionValue>
+          </DescriptionRow>
+          <DescriptionRow>
+            <DescriptionLabel>Weight:</DescriptionLabel>
+            <DescriptionValue>{breed.weight.metric}</DescriptionValue>
+          </DescriptionRow>
+          <DescriptionRow>
+            <DescriptionLabel>Height:</DescriptionLabel>
+            <DescriptionValue>{breed.height.metric}</DescriptionValue>
+          </DescriptionRow>
+        </Description>
       </ContentInfo>
       <Sidebar list={breeds}></Sidebar>
     </ContentContainer>

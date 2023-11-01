@@ -13,8 +13,6 @@ export const Select = styled.div`
   text-decoration-skip-ink: 20px;
 
   @media (max-width: 1080px) {
-    width: 100%;
-    height: 100%;
-    border: 1px solid black;
+    display: none;
   }
 `;
