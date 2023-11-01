@@ -1,30 +1,31 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Bar = styled.div`
   background-color: rgba(38, 38, 38, 1);
   width: 17.65%;
-  height: 100%;
+  height: 82.5%;
   display: flex;
   align-items: flex-start;
   color: white;
   overflow-y: auto;
   box-sizing: border-box;
   background-color: #303030;
+  margin-bottom: 162px;
 
   @media (max-width: 1080px) {
-    height: 100%;
+    height: 83%;
     width: 40%;
     justify-content: flex-end;
     position: relative;
-    margin-bottom: -50px;
+    margin-bottom: 125px;
   }
 
   @media (max-width: 720px) {
-    height: 160%;
+    height: 50%;
     width: 100%;
     justify-content: flex-end;
     position: relative;
-    margin-bottom: 0px;
+    margin-bottom: 310px;
   }
 `;
 
@@ -46,12 +47,12 @@ export const List = styled.ul`
 
 export const Button = styled.button`
   width: 100%;
-  background-color: ${(props) => (props.selected ? 'black' : '#303030')};
+  background-color: ${(props) => (props.selected ? "black" : "#303030")};
   border: none;
   position: relative;
 
   &::after {
-    content: '';
+    content: "";
     display: block;
     width: 50%;
     height: 1px;

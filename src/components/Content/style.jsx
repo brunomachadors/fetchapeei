@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
 export const ContentContainer = styled.div`
   width: 100%;
@@ -78,7 +78,7 @@ export const Description = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: start;
+  text-align: center;
   font-family: sans-serif;
 
   @media (max-width: 1080px) {

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const TabButton = styled.button`
   font-size: 18px;
@@ -8,7 +8,7 @@ export const TabButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => (props.selected ? '#fcebda' : '#f9dec9')};
+  background-color: ${(props) => (props.selected ? "#fcebda" : "#f9dec9")};
   border: none;
   border-left: #a0a0a0 0.2px solid;
   color: #303030;
@@ -27,7 +27,6 @@ export const TabButton = styled.button`
 export const TabButtonDark = styled.button`
   font-size: 18px;
   width: 15%;
-
   height: 100%;
   display: flex;
   align-items: center;
@@ -57,6 +56,7 @@ export const PawIcon = styled.img`
   width: 35px;
   position: relative;
   filter: invert(1);
+  margin: 0 10px;
 `;
 
 export const TextContainerColumn = styled.div`
