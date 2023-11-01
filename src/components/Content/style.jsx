@@ -60,9 +60,11 @@ export const Title = styled.div`
   align-items: center;
   font-size: 50px;
   margin-top: 25px;
+
   @media (max-width: 1080px) {
     font-size: 30px;
     margin-top: 0px;
+    text-align: center;
   }
 
   @media (max-width: 720px) {
