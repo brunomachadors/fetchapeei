@@ -11,6 +11,12 @@ export const NavbarContainer = styled.div`
     flex-direction: column;
     margin-top: 0px;
   }
+
+  @media (max-height: 720px) {
+    width: 100%;
+    flex-direction: column;
+    height: 160px;
+  }
 `;
 
 export const Menu = styled.div`
@@ -24,5 +30,11 @@ export const Menu = styled.div`
     width: 100%;
     flex-direction: row;
     height: 210px;
+  }
+
+  @media (max-width: 720px) {
+    width: 100%;
+    flex-direction: column;
+    height: 180px;
   }
 `;

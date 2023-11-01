@@ -11,11 +11,16 @@ export const TabButton = styled.button`
   background-color: ${(props) => (props.selected ? '#fcebda' : '#f9dec9')};
   border: none;
   border-left: #a0a0a0 0.2px solid;
-  color: black;
+  color: #303030;
 
   @media (max-width: 1080px) {
+    width: 120px;
+    height: 120px;
+  }
+
+  @media (max-width: 720px) {
     width: 100%;
-    height: 180px;
+    height: 60px;
   }
 `;
 
@@ -28,7 +33,7 @@ export const TabButtonDark = styled.button`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  background-color: #303030;
+  background-color: #202020;
   border: none;
   border-left: #a0a0a0 0.2px solid;
   gap: 10px;

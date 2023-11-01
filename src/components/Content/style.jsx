@@ -8,10 +8,17 @@ export const ContentContainer = styled.div`
   justify-content: center;
 
   @media (max-width: 1080px) {
-    flex-direction: column;
+    flex-direction: row;
     height: 100%;
     justify-content: center;
-    height: 70%;
+    height: 100%;
+  }
+
+  @media (max-width: 720px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
     margin-top: 150px;
   }
 `;
@@ -29,7 +36,12 @@ export const ContentInfo = styled.div`
   @media (max-width: 1080px) {
     justify-content: flex-start;
     height: 100%;
-    margin-top: -10px;
+  }
+
+  @media (max-width: 720px) {
+    justify-content: flex-start;
+    height: 100%;
+    margin-top: -90px;
   }
 `;
 
@@ -50,6 +62,12 @@ export const Title = styled.div`
   margin-top: 25px;
   @media (max-width: 1080px) {
     font-size: 30px;
+    margin-top: 0px;
+  }
+
+  @media (max-width: 720px) {
+    font-size: 25px;
+    margin-top: 40px;
   }
 `;
 
@@ -76,6 +94,10 @@ export const DescriptionRow = styled.div`
   padding: 5px 0;
   @media (max-width: 1080px) {
     font-size: 20px;
+  }
+
+  @media (max-width: 720px) {
+    font-size: 13px;
   }
 `;
 
