@@ -69,7 +69,7 @@ export function BreedsContent() {
           </DescriptionRow>
           <DescriptionRow>
             <DescriptionLabel>Weight:</DescriptionLabel>
-            <DescriptionValue>{breed.weight.metric} cm</DescriptionValue>
+            <DescriptionValue>{breed.weight.metric} kg</DescriptionValue>
           </DescriptionRow>
           <DescriptionRow>
             <DescriptionLabel>Height:</DescriptionLabel>
