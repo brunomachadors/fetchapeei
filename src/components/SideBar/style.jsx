@@ -2,39 +2,31 @@ import styled from 'styled-components';
 
 export const Bar = styled.div`
   background-color: rgba(38, 38, 38, 1);
-  width: 17.6%;
+  width: 17.65%;
   height: 100%;
   display: flex;
   align-items: flex-start;
   color: white;
   overflow-y: auto;
   box-sizing: border-box;
+  background-color: #303030;
 
   @media (max-width: 1080px) {
-    height: 25%;
+    height: 100%;
+    width: 40%;
+    justify-content: flex-end;
+    position: relative;
+    margin-bottom: -50px;
+  }
+
+  @media (max-width: 720px) {
+    height: 160%;
     width: 100%;
-    justify-content: flex-start;
+    justify-content: flex-end;
+    position: relative;
+    margin-bottom: 0px;
   }
 `;
-
-export const Title = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 50px;
-  margin-top: 25px;
-  @media (max-width: 1080px) {
-    font-size: 30px;
-  }
-`;
-
-export const Description = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-export const AdditionalInfo = styled.p``;
 
 export const List = styled.ul`
   list-style-type: none;
@@ -45,36 +37,42 @@ export const List = styled.ul`
   margin-block-end: 0;
   padding-inline-start: 0;
   color: white;
-  :hover {
-    border-left: 4px solid gold;
-  }
+  font-size: 20px;
 
-  @media (max-width: 1080px) {
-    display: flex;
-    font-size: 10px;
+  :hover {
+    background-color: #202020;
   }
 `;
 
 export const Button = styled.button`
   width: 100%;
+  background-color: ${(props) => (props.selected ? 'black' : '#303030')};
+  border: none;
+  position: relative;
 
-  :hover {
+  &::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 1px;
+    background-color: #ffd9006e;
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+  }
+
+  :active {
+    box-shadow: none;
     border: none;
   }
+
+  ${(props) => props.selected && `border-left: 4px solid #ffd900a3;`}
 `;
 
 export const Item = styled.li`
   width: 100%;
   margin-top: 30px;
-  color: white;
-
-  :hover {
-    border: none;
-  }
+  color: #bcbbbb;
 `;
 
-export const Name = styled.p`
-  :hover {
-    border: none;
-  }
-`;
+export const Name = styled.p``;

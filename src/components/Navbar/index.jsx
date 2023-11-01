@@ -13,8 +13,8 @@ function Navbar({ selectText = '', selectedPage }) {
       <LandingTab></LandingTab>
       <Menu>
         <BreedsTab selectedPage={selectedPage}></BreedsTab>
-        <FavouritesTab selectedPage={selectedPage}></FavouritesTab>
         <PhotosTab selectedPage={selectedPage}></PhotosTab>
+        <FavouritesTab selectedPage={selectedPage}></FavouritesTab>
         <Search />
       </Menu>
       <Select>{selectText}</Select>

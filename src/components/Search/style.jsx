@@ -11,14 +11,18 @@ export const SearchContainer = styled.div`
 
   @media (max-width: 1080px) {
     width: 100%;
-    height: 500px;
-    gap: 5px;
-    justify-content: center;
+    height: 120px;
+    gap: 15px;
+    justify-content: flex-end;
+  }
+  @media (max-width: 720px) {
+    height: 40%;
+    justify-content: flex-end;
   }
 `;
 
 export const SearchInput = styled.input`
-  color: black;
+  color: #303030;
   background-color: rgba(253, 243, 233, 1);
   width: 70%;
   max-width: 480px;
@@ -38,6 +42,5 @@ export const LensIcon = styled.img`
   margin-right: 30px;
 
   @media (max-width: 1080px) {
-    margin-right: 0px;
   }
 `;
