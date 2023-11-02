@@ -2,7 +2,6 @@ import Sidebar from '../SideBar';
 import { PawIcon } from '../Tabs/style';
 import {
   AdditionalInfo,
-  AboutUs,
   Description,
   DescriptionLabel,
   DescriptionRow,
