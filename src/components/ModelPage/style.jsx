@@ -14,3 +14,17 @@ export const Page = styled.div`
     justify-content: flex-start;
   }
 `;
+
+export const GalleryPage = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 1080px) {
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+`;

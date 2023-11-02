@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 export const NavbarContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
   height: 160px;
 
@@ -23,7 +23,7 @@ export const Menu = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 70%;
+  width: 100%;
   height: 160px;
 
   @media (max-width: 1080px) {

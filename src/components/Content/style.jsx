@@ -99,7 +99,7 @@ export const LandingDescription = styled.h2`
   }
 `;
 
-export const AdditionalInfo = styled.p``;
+export const AdditionalInfo = styled.div``;
 
 export const LandingUl = styled.ul``;
 

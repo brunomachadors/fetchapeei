@@ -81,3 +81,20 @@ export function PhotosTab({ selectedPage }) {
 PhotosTab.propTypes = {
   selectedPage: PropTypes.string,
 };
+
+export function GalleryTab({ selectedPage }) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/Gallery');
+  };
+
+  return (
+    <TabButton selected={selectedPage === 'Gallery'} onClick={handleClick}>
+      GALLERY
+    </TabButton>
+  );
+}
+
+GalleryTab.propTypes = {
+  selectedPage: PropTypes.string,
+};

@@ -5,7 +5,13 @@ import { Search } from '../Search';
 
 //Dependencies
 import PropTypes from 'prop-types';
-import { BreedsTab, FavouritesTab, LandingTab, PhotosTab } from '../Tabs';
+import {
+  BreedsTab,
+  FavouritesTab,
+  GalleryTab,
+  LandingTab,
+  PhotosTab,
+} from '../Tabs';
 
 function Navbar({ selectText = '', selectedPage }) {
   return (
@@ -14,10 +20,11 @@ function Navbar({ selectText = '', selectedPage }) {
       <Menu>
         <BreedsTab selectedPage={selectedPage}></BreedsTab>
         <PhotosTab selectedPage={selectedPage}></PhotosTab>
+        <GalleryTab selectedPage={selectedPage}></GalleryTab>
         <FavouritesTab selectedPage={selectedPage}></FavouritesTab>
         <Search />
       </Menu>
-      <Select>{selectText}</Select>
+      {selectText && <Select>{selectText}</Select>}
     </NavbarContainer>
   );
 }

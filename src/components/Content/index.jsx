@@ -1,5 +1,4 @@
 import Sidebar from '../SideBar';
-import { PawIcon } from '../Tabs/style';
 import {
   AdditionalInfo,
   Description,
@@ -15,27 +14,15 @@ import { ContentContainer, ContentInfo } from './style';
 import { getAllBreeds } from '../../api/breeds';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import pawIcon from '../../assets/icons/paw_4.svg';
+import { getPhotoById, getPhotoGallery } from '../../api/photos';
+import PhotoGallery from '../PhotoGallery';
+import { SinglePhoto } from '../Photo/style';
 
 export function LandingContent() {
   return (
     <ContentContainer style={{ backgroundColor: 'rgba(253, 243, 233, 1)' }}>
       <ContentInfo>
-        <Title>
-          <PawIcon
-            src={pawIcon}
-            style={{
-              filter: 'invert(0.7)',
-            }}
-          />
-          Welcome to Fetch A P I
-          <PawIcon
-            src={pawIcon}
-            style={{
-              filter: 'invert(0.7)',
-            }}
-          />
-        </Title>
+        <Title>Welcome to Fetch A P I</Title>
         <Description style={{ fontFamily: 'Play', margin: '0 10vw' }}>
           <LandingDescription>
             This responsive website was a part of our Front-end Bootcamp
@@ -131,33 +118,54 @@ export function FavouritesContent() {
 export function PhotosContent() {
   const [breeds, setBreeds] = useState([]);
   const breed = useSelector((state) => state.breed.selectedBreed);
+  const [dogImage, setDogImage] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const data = await getAllBreeds();
         setBreeds(data);
+
+        const image = await getPhotoById(breed.reference_image_id);
+        setDogImage(image);
       } catch (error) {
         console.error('Error fetching breeds:', error);
       }
     }
 
     fetchData();
-  }, []);
+  }, [breed.reference_image_id]);
+
   return (
     <ContentContainer>
       <ContentInfo>
-        <Title>{breed.name}</Title>
-        <Description>
-          <img
-            src={`https://cdn2.thedogapi.com/images/${breed.reference_image_id}_1280.jpg`}
-          />
-        </Description>
-        <AdditionalInfo>Additional information Photos</AdditionalInfo>
+        {dogImage ? (
+          <SinglePhoto src={dogImage.url} />
+        ) : (
+          <div>Loading image...</div>
+        )}
       </ContentInfo>
-      <Sidebar list={breeds}></Sidebar>
+      <Sidebar list={breeds} />
     </ContentContainer>
   );
 }
 
+export function GalleryContent() {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    async function fetchGalery() {
+      try {
+        const gallery = await getPhotoGallery();
+        setImages(gallery);
+      } catch (error) {
+        console.error('Error fetching breeds:', error);
+      }
+    }
+
+    fetchGalery();
+  }, []);
+
+  return <PhotoGallery images={images}></PhotoGallery>;
+}
 export default LandingContent;
