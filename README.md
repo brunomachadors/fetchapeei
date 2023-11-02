@@ -76,6 +76,8 @@ This project was made using Redux. Redux provides a central store to hold the st
 You can use Redux for managing the state of a web application. It follows a predictable state management pattern, where the entire application state is stored in a single JavaScript object, and changes to the state are made through actions. 
 These actions are dispatched by components and processed by reducers, which are pure functions responsible for updating the state. 
 
+[Redux Website](https://redux.js.org/)
+
 # PREVIEW
 
 ![FETCH A PEE I](public/previewMobile.png)
