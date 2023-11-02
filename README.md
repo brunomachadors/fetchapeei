@@ -27,6 +27,12 @@ yarn dev
 
 ![PANTUFA](public/PANTUFA.png)
 
+
+### LIRA
+
+![SraDonaLira](https://github.com/brunomachadors/Fetch-a-pee-I/assets/122362657/95cfb77a-5cb3-4d89-8872-c27fec679350)
+
+
 ### DOG API
 
 - [DOG API](https://www.thedogapi.com/)
