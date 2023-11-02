@@ -1,55 +1,58 @@
-import Sidebar from "../SideBar";
-import { PawIcon } from "../Tabs/style";
+import Sidebar from '../SideBar';
+import { PawIcon } from '../Tabs/style';
 import {
   AdditionalInfo,
+  AboutUs,
   Description,
   DescriptionLabel,
   DescriptionRow,
   DescriptionValue,
+  LandingDescription,
+  LandingLi,
+  LandingUl,
   Title,
-} from "./style";
-import { ContentContainer, ContentInfo } from "./style";
-import { getAllBreeds } from "../../api/breeds";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import pawIcon from "../../assets/icons/paw_4.svg";
+} from './style';
+import { ContentContainer, ContentInfo } from './style';
+import { getAllBreeds } from '../../api/breeds';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import pawIcon from '../../assets/icons/paw_4.svg';
 
 export function LandingContent() {
   return (
-    <ContentContainer style={{ backgroundColor: "rgba(253, 243, 233, 1)" }}>
+    <ContentContainer style={{ backgroundColor: 'rgba(253, 243, 233, 1)' }}>
       <ContentInfo>
         <Title>
           <PawIcon
             src={pawIcon}
             style={{
-              filter: "invert(0.7)",
+              filter: 'invert(0.7)',
             }}
           />
           Welcome to Fetch A P I
           <PawIcon
             src={pawIcon}
             style={{
-              filter: "invert(0.7)",
+              filter: 'invert(0.7)',
             }}
           />
         </Title>
-
-        <Description style={{ fontFamily: "Play", margin: "0 10vw" }}>
-          <h2>
+        <Description style={{ fontFamily: 'Play', margin: '0 10vw' }}>
+          <LandingDescription>
             This responsive website was a part of our Front-end Bootcamp
             projects @MinderaSchool, it uses pretty much all the components that
             we studied during of this course.
-          </h2>
+          </LandingDescription>
         </Description>
         <AdditionalInfo>
-          <ul>
-            <li>API</li>
-            <li>HTML</li>
-            <li>Redux</li>
-            <li>UseState & UseEffect</li>
-            <li>Styled Components</li>
-            <li>VITE & React</li>
-          </ul>
+          <LandingUl>
+            <LandingLi>API</LandingLi>
+            <LandingLi>HTML</LandingLi>
+            <LandingLi>Redux</LandingLi>
+            <LandingLi>UseState & UseEffect</LandingLi>
+            <LandingLi>Styled Components</LandingLi>
+            <LandingLi>VITE & React</LandingLi>
+          </LandingUl>
         </AdditionalInfo>
       </ContentInfo>
     </ContentContainer>
@@ -66,7 +69,7 @@ export function BreedsContent() {
         const data = await getAllBreeds();
         setBreeds(data);
       } catch (error) {
-        console.error("Error fetching breeds:", error);
+        console.error('Error fetching breeds:', error);
       }
     }
 
@@ -84,7 +87,7 @@ export function BreedsContent() {
           </DescriptionRow>
           <DescriptionRow>
             <DescriptionLabel>Breed for:</DescriptionLabel>
-            <DescriptionValue>{breed.bred_for || "Unknown"}</DescriptionValue>
+            <DescriptionValue>{breed.bred_for || 'Unknown'}</DescriptionValue>
           </DescriptionRow>
           <DescriptionRow>
             <DescriptionLabel>Life span:</DescriptionLabel>
@@ -96,7 +99,7 @@ export function BreedsContent() {
           </DescriptionRow>
           <DescriptionRow>
             <DescriptionLabel>Origin:</DescriptionLabel>
-            <DescriptionValue>{breed.origin || "Unknown"}</DescriptionValue>
+            <DescriptionValue>{breed.origin || 'Unknown'}</DescriptionValue>
           </DescriptionRow>
           <DescriptionRow>
             <DescriptionLabel>Weight:</DescriptionLabel>
@@ -136,7 +139,7 @@ export function PhotosContent() {
         const data = await getAllBreeds();
         setBreeds(data);
       } catch (error) {
-        console.error("Error fetching breeds:", error);
+        console.error('Error fetching breeds:', error);
       }
     }
 

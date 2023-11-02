@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 export const ContentContainer = styled.div`
   width: 100%;
@@ -86,7 +86,24 @@ export const Description = styled.div`
   }
 `;
 
+export const LandingDescription = styled.h2`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: sans-serif;
+
+  @media (max-width: 1080px) {
+    align-items: center;
+  }
+`;
+
 export const AdditionalInfo = styled.p``;
+
+export const LandingUl = styled.ul``;
+
+export const LandingLi = styled.li``;
 
 export const DescriptionRow = styled.div`
   display: flex;
