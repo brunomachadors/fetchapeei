@@ -146,7 +146,11 @@ export function PhotosContent() {
     <ContentContainer>
       <ContentInfo>
         <Title>{breed.name}</Title>
-        <Description>Photos</Description>
+        <Description>
+          <img
+            src={`https://cdn2.thedogapi.com/images/${breed.reference_image_id}_1280.jpg`}
+          />
+        </Description>
         <AdditionalInfo>Additional information Photos</AdditionalInfo>
       </ContentInfo>
       <Sidebar list={breeds}></Sidebar>

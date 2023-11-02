@@ -20,6 +20,11 @@ export const Bar = styled.div`
     margin-bottom: 125px;
   }
 
+  @media (max-width: 820px) {
+    height: 84%;
+    margin-bottom: 120px;
+  }
+
   @media (max-width: 720px) {
     height: 50%;
     width: 100%;

@@ -1,29 +1,28 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   selectedBreed: {
     weight: {
-      imperial: '50 - 60',
-      metric: '23 - 27',
+      imperial: "6 - 13",
+      metric: "3 - 6",
     },
     height: {
-      imperial: '25 - 27',
-      metric: '64 - 69',
+      imperial: "9 - 11.5",
+      metric: "23 - 29",
     },
-    id: 2,
-    name: 'Afghan Hound',
-    country_code: 'AG',
-    bred_for: 'Coursing and hunting',
-    breed_group: 'Hound',
-    life_span: '10 - 13 years',
-    temperament: 'Aloof, Clownish, Dignified, Independent, Happy',
-    origin: 'Afghanistan, Iran, Pakistan',
-    reference_image_id: 'hMyT4CDXR',
+    id: 1,
+    name: "Affenpinscher",
+    bred_for: "Small rodent hunting, lapdog",
+    breed_group: "Toy",
+    life_span: "10 - 12 years",
+    temperament: "Stubborn, Curious, Playful, Adventurous, Active, Fun-loving",
+    origin: "Germany, France",
+    reference_image_id: "BJa4kxc4X",
   },
 };
 
 export const breedSlice = createSlice({
-  name: 'breed',
+  name: "breed",
   initialState,
   reducers: {
     select: (state, action) => {
