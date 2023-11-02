@@ -2,11 +2,11 @@ import axios from "axios";
 import { getBaseApiUrl } from "../../utils/getEnvVariables";
 import { API_PATHS } from "../../constants";
 
-export const getAllBreeds = async () => {
+export const getAllPhotos = async () => {
   let config = {
     method: "get",
     maxBodyLength: Infinity,
-    url: getBaseApiUrl() + API_PATHS.breeds,
+    url: getBaseApiUrl() + API_PATHS.images,
     headers: {
       "Content-Type": "application/json",
     },

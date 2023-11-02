@@ -1,26 +1,59 @@
 import Sidebar from '../SideBar';
+import { PawIcon } from '../Tabs/style';
 import {
   AdditionalInfo,
   Description,
   DescriptionLabel,
   DescriptionRow,
   DescriptionValue,
+  LandingDescription,
+  LandingLi,
+  LandingUl,
   Title,
 } from './style';
 import { ContentContainer, ContentInfo } from './style';
 import { getAllBreeds } from '../../api/breeds';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import pawIcon from '../../assets/icons/paw_4.svg';
 
 export function LandingContent() {
   return (
-    <ContentContainer>
+    <ContentContainer style={{ backgroundColor: 'rgba(253, 243, 233, 1)' }}>
       <ContentInfo>
-        <Title>Landing</Title>
-        <Description>Landing Content</Description>
-        <AdditionalInfo>Additional information Landing</AdditionalInfo>
+        <Title>
+          <PawIcon
+            src={pawIcon}
+            style={{
+              filter: 'invert(0.7)',
+            }}
+          />
+          Welcome to Fetch A P I
+          <PawIcon
+            src={pawIcon}
+            style={{
+              filter: 'invert(0.7)',
+            }}
+          />
+        </Title>
+        <Description style={{ fontFamily: 'Play', margin: '0 10vw' }}>
+          <LandingDescription>
+            This responsive website was a part of our Front-end Bootcamp
+            projects @MinderaSchool, it uses pretty much all the components that
+            we studied during of this course.
+          </LandingDescription>
+        </Description>
+        <AdditionalInfo>
+          <LandingUl>
+            <LandingLi>API</LandingLi>
+            <LandingLi>HTML</LandingLi>
+            <LandingLi>Redux</LandingLi>
+            <LandingLi>UseState & UseEffect</LandingLi>
+            <LandingLi>Styled Components</LandingLi>
+            <LandingLi>VITE & React</LandingLi>
+          </LandingUl>
+        </AdditionalInfo>
       </ContentInfo>
-      <Sidebar></Sidebar>
     </ContentContainer>
   );
 }
@@ -96,14 +129,33 @@ export function FavouritesContent() {
 }
 
 export function PhotosContent() {
+  const [breeds, setBreeds] = useState([]);
+  const breed = useSelector((state) => state.breed.selectedBreed);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await getAllBreeds();
+        setBreeds(data);
+      } catch (error) {
+        console.error('Error fetching breeds:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
   return (
     <ContentContainer>
       <ContentInfo>
-        <Title>Photos</Title>
-        <Description>Photos</Description>
+        <Title>{breed.name}</Title>
+        <Description>
+          <img
+            src={`https://cdn2.thedogapi.com/images/${breed.reference_image_id}_1280.jpg`}
+          />
+        </Description>
         <AdditionalInfo>Additional information Photos</AdditionalInfo>
       </ContentInfo>
-      <Sidebar></Sidebar>
+      <Sidebar list={breeds}></Sidebar>
     </ContentContainer>
   );
 }
