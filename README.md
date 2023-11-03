@@ -27,6 +27,12 @@ yarn dev
 
 ![PANTUFA](public/PANTUFA.png)
 
+
+### LIRA
+
+![SraDonaLira](https://github.com/brunomachadors/Fetch-a-pee-I/assets/122362657/95cfb77a-5cb3-4d89-8872-c27fec679350)
+
+
 ### DOG API
 
 - [DOG API](https://www.thedogapi.com/)
@@ -55,13 +61,22 @@ This project is using action as a method of comunication with the endpoins.
 Almost all compoments are using styled compoments
 [Style Compoments Website](https://styled-components.com/)
 
-### PRO TYPES
+### PROP TYPES
 
 Runtime type checking for React props and similar objects.
 
 You can use prop-types to document the intended types of properties passed to components. React (and potentially other libraries—see the checkPropTypes() reference below) will check props passed to your components against those definitions, and warn in development if they don’t match.
 
 [Prop Types](https://www.npmjs.com/package/prop-types)
+
+### REDUX
+
+This project was made using Redux. Redux provides a central store to hold the state, and any component can access and subscribe to this store to stay informed about state changes.
+
+You can use Redux for managing the state of a web application. It follows a predictable state management pattern, where the entire application state is stored in a single JavaScript object, and changes to the state are made through actions. 
+These actions are dispatched by components and processed by reducers, which are pure functions responsible for updating the state. 
+
+[Redux Website](https://redux.js.org/)
 
 # PREVIEW
 
