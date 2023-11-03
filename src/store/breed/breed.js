@@ -25,16 +25,16 @@ export const breedSlice = createSlice({
   name: 'breed',
   initialState,
   reducers: {
-    select: (state, action) => {
+    selectBreed: (state, action) => {
       state.selectedBreed = action.payload;
     },
-    unselect: (state) => {
+    unselectBreed: (state) => {
       state.selectedBreed = initialState.selectedBreed;
     },
   },
 });
 
-export const { select, unselect } = breedSlice.actions;
+export const { selectBreed, unselectBreed } = breedSlice.actions;
 
 const breedReducer = breedSlice.reducer;
 export default breedReducer;

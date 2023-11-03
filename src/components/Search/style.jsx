@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SearchContainer = styled.div`
   background-color: rgba(253, 243, 233, 1);
   height: 160px;
-  width: 85%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;

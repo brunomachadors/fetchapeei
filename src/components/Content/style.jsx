@@ -4,7 +4,7 @@ export const ContentContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 
   @media (max-width: 1080px) {
@@ -30,7 +30,8 @@ export const ContentInfo = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  margin-top: 250px;
+  position: relative;
+  padding: 50px;
   gap: 20px;
 
   @media (max-width: 1080px) {
@@ -99,7 +100,7 @@ export const LandingDescription = styled.h2`
   }
 `;
 
-export const AdditionalInfo = styled.p``;
+export const AdditionalInfo = styled.div``;
 
 export const LandingUl = styled.ul``;
 

@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Select = styled.div`
   font-size: 15px;
   color: white;
-  width: 15%;
+  width: 320px;
+  min-width: 320px;
   height: 160px;
   display: flex;
   align-items: center;

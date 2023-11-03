@@ -3,6 +3,7 @@ import LandingPage from '../pages/LandingPage';
 import Breeds from '../pages/Breeds';
 import Favourites from '../pages/Favorites';
 import Photos from '../pages/Photos';
+import Gallery from '../pages/Gallery';
 
 function AllRoutes() {
   return (
@@ -12,6 +13,7 @@ function AllRoutes() {
         <Route path="/breeds" element={<Breeds />}></Route>
         <Route path="/favourites" element={<Favourites />}></Route>
         <Route path="/photos" element={<Photos />}></Route>
+        <Route path="/Gallery" element={<Gallery />}></Route>
       </Routes>
     </BrowserRouter>
   );

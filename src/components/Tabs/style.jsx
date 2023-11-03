@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const TabButton = styled.button`
   font-size: 18px;
@@ -8,7 +8,7 @@ export const TabButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => (props.selected ? "#fcebda" : "#f9dec9")};
+  background-color: ${(props) => (props.selected ? '#fcebda' : '#f9dec9')};
   border: none;
   border-left: #a0a0a0 0.2px solid;
   color: #303030;
@@ -26,7 +26,8 @@ export const TabButton = styled.button`
 
 export const TabButtonDark = styled.button`
   font-size: 18px;
-  width: 15%;
+  width: 320px;
+  min-width: 320px;
   height: 100%;
   display: flex;
   align-items: center;
