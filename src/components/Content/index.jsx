@@ -17,9 +17,8 @@ import { useSelector } from 'react-redux';
 import { getPhotoById, getPhotoGallery } from '../../api/photos';
 import PhotoGallery from '../PhotoGallery';
 import { SinglePhoto } from '../Photo/style';
-
 import PropTypes from 'prop-types';
-import { getAllFavourites } from '../../api/favourites';
+import Favourites from '../Favourites';
 
 export function LandingContent() {
   return (
@@ -106,30 +105,14 @@ export function BreedsContent() {
 }
 
 export function FavouritesContent() {
-  const [favourites, setFavourites] = useState([]);
-
-  useEffect(() => {
-    async function FetchFavourites() {
-      const response = await getAllFavourites();
-
-      console.log(response);
-      setFavourites(response);
-    }
-
-    FetchFavourites();
-  }, []);
+  const favouritesData = useSelector((state) => state.favourites.data);
 
   return (
     <ContentContainer>
       <ContentInfo>
-        <Title>Favourites</Title>
-        {favourites.map((favourite, index) => (
-          <Description key={index}>{favourite.id}</Description>
-        ))}
-
-        <AdditionalInfo>Additional information Favourites</AdditionalInfo>
+        <Favourites></Favourites>
       </ContentInfo>
-      <Sidebar></Sidebar>
+      <Sidebar list={favouritesData}></Sidebar>
     </ContentContainer>
   );
 }
