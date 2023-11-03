@@ -19,6 +19,7 @@ import PhotoGallery from '../PhotoGallery';
 import { SinglePhoto } from '../Photo/style';
 
 import PropTypes from 'prop-types';
+import { getAllFavourites } from '../../api/favourites';
 
 export function LandingContent() {
   return (
@@ -105,11 +106,27 @@ export function BreedsContent() {
 }
 
 export function FavouritesContent() {
+  const [favourites, setFavourites] = useState([]);
+
+  useEffect(() => {
+    async function FetchFavourites() {
+      const response = await getAllFavourites();
+
+      console.log(response);
+      setFavourites(response);
+    }
+
+    FetchFavourites();
+  }, []);
+
   return (
     <ContentContainer>
       <ContentInfo>
         <Title>Favourites</Title>
-        <Description>Favourites Description</Description>
+        {favourites.map((favourite, index) => (
+          <Description key={index}>{favourite.id}</Description>
+        ))}
+
         <AdditionalInfo>Additional information Favourites</AdditionalInfo>
       </ContentInfo>
       <Sidebar></Sidebar>
@@ -170,7 +187,7 @@ export function GalleryContent() {
     fetchGallery();
   }, [currentPage]);
 
-  const pageArray = Array.from({ length: 64 }, (_, i) => i);
+  const pageArray = Array.from({ length: 105 }, (_, i) => i);
 
   return (
     <ContentContainer>

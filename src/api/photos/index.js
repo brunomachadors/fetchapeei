@@ -27,7 +27,7 @@ export const getPhotoGallery = async (page) => {
     url:
       getBaseApiUrl() +
       API_PATHS.images +
-      `/search?order=ASC&page=${page}&limit=20`,
+      `/search?order=ASC&page=${page}&limit=12`,
 
     headers: {
       'Content-Type': 'application/json',
