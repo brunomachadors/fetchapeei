@@ -2,12 +2,11 @@ import styled from 'styled-components';
 
 export const GalleryContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-auto-rows: 200px;
-  width: 60%;
-  height: 60%;
-  margin-top: 100px;
-  gap: 10px;
+  width: 70%;
+  height: 70%;
+  gap: 20px;
 `;
 
 export const GalleryRow = styled.div`
@@ -18,4 +17,5 @@ export const GalleryImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: relative;
 `;

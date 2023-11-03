@@ -10,6 +10,7 @@ export const Bar = styled.div`
   overflow-y: auto;
   box-sizing: border-box;
   background-color: #303030;
+  z-index: 1;
 
   @media (max-width: 1080px) {
     height: 83%;

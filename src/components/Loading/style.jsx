@@ -19,7 +19,7 @@ export const LoadingModalContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999; /* Ensure it's on top of everything */
+  z-index: 999;
 
   &::before {
     content: '';

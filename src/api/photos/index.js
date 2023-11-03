@@ -20,11 +20,15 @@ export const getAllPhotos = async () => {
   }
 };
 
-export const getPhotoGallery = async (page = 0) => {
+export const getPhotoGallery = async (page) => {
   let config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: getBaseApiUrl() + API_PATHS.images + `/search?page=${page}&limit=12`,
+    url:
+      getBaseApiUrl() +
+      API_PATHS.images +
+      `/search?order=ASC&page=${page}&limit=20`,
+
     headers: {
       'Content-Type': 'application/json',
       'x-api-key': getApiKey(),

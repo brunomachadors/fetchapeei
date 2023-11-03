@@ -15,8 +15,9 @@ export const GalleryModalBackground = styled.div`
 export const GalleryModalContent = styled.div`
   background: transparent;
   padding: 10px;
-  max-width: 80%;
-  max-height: 80%;
+  padding-right: 250px;
+  max-width: 60%;
+  max-height: 60%;
   overflow: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -28,6 +29,6 @@ export const GalleryModalContent = styled.div`
 export const GalleryImage = styled.img`
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
   background: transparent;
+  display: flex;
 `;

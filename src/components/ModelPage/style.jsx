@@ -28,3 +28,14 @@ export const GalleryPage = styled.div`
     justify-content: flex-start;
   }
 `;
+
+export const GalleryButton = styled.button`
+  background-color: #685044;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 10px;
+  border-radius: 4px;
+  width: 90px;
+  transition: background-color 0.3s;
+`;

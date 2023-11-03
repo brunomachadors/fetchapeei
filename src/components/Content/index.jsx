@@ -1,4 +1,4 @@
-import Sidebar from '../SideBar';
+import Sidebar, { PageSideBar } from '../SideBar';
 import {
   AdditionalInfo,
   Description,
@@ -17,6 +17,8 @@ import { useSelector } from 'react-redux';
 import { getPhotoById, getPhotoGallery } from '../../api/photos';
 import PhotoGallery from '../PhotoGallery';
 import { SinglePhoto } from '../Photo/style';
+
+import PropTypes from 'prop-types';
 
 export function LandingContent() {
   return (
@@ -139,6 +141,7 @@ export function PhotosContent() {
   return (
     <ContentContainer>
       <ContentInfo>
+        <Title>{breed.name}</Title>
         {dogImage ? (
           <SinglePhoto src={dogImage.url} />
         ) : (
@@ -152,20 +155,35 @@ export function PhotosContent() {
 
 export function GalleryContent() {
   const [images, setImages] = useState([]);
+  const currentPage = useSelector((state) => state.page.value);
 
   useEffect(() => {
-    async function fetchGalery() {
+    async function fetchGallery() {
       try {
-        const gallery = await getPhotoGallery();
+        const gallery = await getPhotoGallery(currentPage);
         setImages(gallery);
       } catch (error) {
-        console.error('Error fetching breeds:', error);
+        console.error('Error fetching gallery:', error);
       }
     }
 
-    fetchGalery();
-  }, []);
+    fetchGallery();
+  }, [currentPage]);
 
-  return <PhotoGallery images={images}></PhotoGallery>;
+  const pageArray = Array.from({ length: 64 }, (_, i) => i);
+
+  return (
+    <ContentContainer>
+      <ContentInfo>
+        <PhotoGallery images={images}></PhotoGallery>
+      </ContentInfo>
+      <PageSideBar list={pageArray}></PageSideBar>
+    </ContentContainer>
+  );
 }
+
+GalleryContent.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+};
+
 export default LandingContent;

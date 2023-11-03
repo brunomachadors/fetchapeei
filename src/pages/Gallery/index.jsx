@@ -5,7 +5,7 @@ import { Page } from '../../components/ModelPage/style';
 function Gallery() {
   return (
     <Page>
-      <Navbar selectedPage={'Gallery'} />
+      <Navbar selectedPage={'Gallery'} selectText="SELECT PAGE" />
       <GalleryContent></GalleryContent>
     </Page>
   );
