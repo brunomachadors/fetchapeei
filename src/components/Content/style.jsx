@@ -81,7 +81,6 @@ export const Description = styled.div`
   justify-content: center;
   text-align: center;
   font-family: sans-serif;
-  border: solid 1px black;
 
   @media (max-width: 1080px) {
     align-items: center;

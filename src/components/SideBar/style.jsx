@@ -20,17 +20,18 @@ export const Bar = styled.div`
     margin-bottom: 125px;
   }
 
-  @media (max-width: 820px) {
+  @media (max-width: 1080px) {
     height: 84%;
-    margin-bottom: 120px;
+    position: relative;
   }
 
   @media (max-width: 720px) {
-    height: 50%;
+    height: 40%;
     width: 100%;
     justify-content: flex-end;
-    position: relative;
-    margin-bottom: 310px;
+    position: absolute;
+    bottom: 0px;
+    margin-bottom: 0px;
   }
 `;
 
