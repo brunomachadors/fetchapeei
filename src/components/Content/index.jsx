@@ -1,4 +1,4 @@
-import Sidebar, { PageSideBar } from '../SideBar';
+import Sidebar, { FavouritesSideBar, PageSideBar } from '../SideBar';
 import {
   AdditionalInfo,
   Description,
@@ -17,7 +17,6 @@ import { useSelector } from 'react-redux';
 import { getPhotoById, getPhotoGallery } from '../../api/photos';
 import PhotoGallery from '../PhotoGallery';
 import { SinglePhoto } from '../Photo/style';
-import PropTypes from 'prop-types';
 import Favourites from '../Favourites';
 
 export function LandingContent() {
@@ -112,7 +111,7 @@ export function FavouritesContent() {
       <ContentInfo>
         <Favourites></Favourites>
       </ContentInfo>
-      <Sidebar list={favouritesData}></Sidebar>
+      <FavouritesSideBar list={favouritesData}></FavouritesSideBar>
     </ContentContainer>
   );
 }
@@ -181,9 +180,5 @@ export function GalleryContent() {
     </ContentContainer>
   );
 }
-
-GalleryContent.propTypes = {
-  currentPage: PropTypes.number.isRequired,
-};
 
 export default LandingContent;

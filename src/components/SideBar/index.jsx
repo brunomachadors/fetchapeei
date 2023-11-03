@@ -4,6 +4,12 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { selectBreed } from '../../store/breed/breed';
 import { selectPage } from '../../store/currentPage/currentPage';
+import {
+  GalleryImage,
+  GalleryModalBackground,
+  GalleryModalContent,
+} from '../Modal/style';
+import { RemoveButton } from '../Favourites/style';
 
 function Sidebar({ list = [] }) {
   const dispatch = useDispatch();
@@ -35,6 +41,47 @@ function Sidebar({ list = [] }) {
 }
 
 Sidebar.propTypes = {
+  list: PropTypes.array,
+};
+
+export function FavouritesSideBar({ list = [] }) {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleFavoriteClick = (image) => {
+    setSelectedImage(image.image);
+  };
+
+  return (
+    <Bar>
+      <List>
+        {list.map((item, index) => (
+          <Button
+            key={item.id}
+            aria-label="select favorite"
+            onClick={() => handleFavoriteClick(item)}
+          >
+            <Item>
+              <Name>Favorite: {index + 1}</Name>
+            </Item>
+          </Button>
+        ))}
+      </List>
+      {selectedImage && (
+        <GalleryModalBackground>
+          <GalleryModalContent>
+            <GalleryImage
+              src={selectedImage.url}
+              alt="Selected Favorite"
+            ></GalleryImage>
+            <RemoveButton onClick={''}>Remove from Favorites</RemoveButton>
+          </GalleryModalContent>
+        </GalleryModalBackground>
+      )}
+    </Bar>
+  );
+}
+
+FavouritesSideBar.propTypes = {
   list: PropTypes.array,
 };
 

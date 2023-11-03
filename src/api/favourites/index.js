@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getApiKey, getBaseApiUrl } from '../../utils/getEnvVariables';
 import { API_PATHS } from '../../constants';
 
-export const getAllFavourites = async () => {
+const getAllFavourites = async () => {
   let config = {
     method: 'get',
     maxBodyLength: Infinity,
@@ -18,5 +18,8 @@ export const getAllFavourites = async () => {
     return response.data;
   } catch (error) {
     console.error(error);
+    throw error;
   }
 };
+
+export default getAllFavourites;

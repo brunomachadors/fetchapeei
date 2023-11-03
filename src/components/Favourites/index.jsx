@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { FavouritePhoto, FavouritesContainer } from './style';
-import { getAllFavourites } from '../../api/favourites';
 import { useDispatch } from 'react-redux';
 import { setFavourites } from '../../store/favourites/favourites';
+import getAllFavourites from '../../api/favourites';
 
 export default function Favourites() {
   const [favouriteImages, setFavouriteImages] = useState([]);
@@ -16,7 +16,7 @@ export default function Favourites() {
     }
 
     FetchFavourites();
-  }, []);
+  }, [dispatch]);
 
   return (
     <FavouritesContainer>

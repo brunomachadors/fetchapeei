@@ -19,3 +19,19 @@ export const FavouritePhoto = styled.img`
   object-fit: cover;
   position: relative;
 `;
+
+export const RemoveButton = styled.button`
+  background: transparent;
+  color: #fff;
+  padding: 8px 16px;
+  border: 1px solid white;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background 0.3s;
+  position: relative;
+  top: -40px;
+
+  &:hover {
+    background: #e04f4f;
+  }
+`;
