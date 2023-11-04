@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
-import { FavouritePhoto, FavouritesContainer } from './style';
+import {
+  FavouritePhoto,
+  FavouritesContainer,
+  ImageContainer,
+  RemoveButton,
+} from './style';
 import { useDispatch } from 'react-redux';
 import { setFavourites } from '../../store/favourites/favourites';
 import getAllFavourites from '../../api/favourites';
@@ -18,10 +23,19 @@ export default function Favourites() {
     FetchFavourites();
   }, [dispatch]);
 
+  const handleRemoveFromFavorites = (index) => {
+    console.log(index);
+  };
+
   return (
     <FavouritesContainer>
       {favouriteImages.map((favourite, index) => (
-        <FavouritePhoto key={index} src={favourite.image.url}></FavouritePhoto>
+        <ImageContainer key={index}>
+          <FavouritePhoto src={favourite.image.url} />
+          <RemoveButton onClick={() => handleRemoveFromFavorites(index)}>
+            Remove Favourite {index + 1}
+          </RemoveButton>
+        </ImageContainer>
       ))}
     </FavouritesContainer>
   );

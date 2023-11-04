@@ -9,7 +9,7 @@ import {
   GalleryModalBackground,
   GalleryModalContent,
 } from '../Modal/style';
-import { RemoveButton } from '../Favourites/style';
+import { RemoveButtonHover } from '../Favourites/style';
 
 function Sidebar({ list = [] }) {
   const dispatch = useDispatch();
@@ -51,6 +51,10 @@ export function FavouritesSideBar({ list = [] }) {
     setSelectedImage(image.image);
   };
 
+  const handleRemoveFromFavorites = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <Bar>
       <List>
@@ -67,13 +71,15 @@ export function FavouritesSideBar({ list = [] }) {
         ))}
       </List>
       {selectedImage && (
-        <GalleryModalBackground>
+        <GalleryModalBackground onClick={() => setSelectedImage(null)}>
           <GalleryModalContent>
             <GalleryImage
               src={selectedImage.url}
               alt="Selected Favorite"
             ></GalleryImage>
-            <RemoveButton onClick={''}>Remove from Favorites</RemoveButton>
+            <RemoveButtonHover onClick={handleRemoveFromFavorites}>
+              Remove from Favorites
+            </RemoveButtonHover>
           </GalleryModalContent>
         </GalleryModalBackground>
       )}
