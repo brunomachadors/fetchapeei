@@ -1,4 +1,4 @@
-import Sidebar, { PageSideBar } from '../SideBar';
+import Sidebar, { FavouritesSideBar, PageSideBar } from '../SideBar';
 import {
   AdditionalInfo,
   Description,
@@ -17,8 +17,7 @@ import { useSelector } from 'react-redux';
 import { getPhotoById, getPhotoGallery } from '../../api/photos';
 import PhotoGallery from '../PhotoGallery';
 import { SinglePhoto } from '../Photo/style';
-
-import PropTypes from 'prop-types';
+import Favourites from '../Favourites';
 
 export function LandingContent() {
   return (
@@ -105,14 +104,14 @@ export function BreedsContent() {
 }
 
 export function FavouritesContent() {
+  const favouritesData = useSelector((state) => state.favourites.data);
+
   return (
     <ContentContainer>
       <ContentInfo>
-        <Title>Favourites</Title>
-        <Description>Favourites Description</Description>
-        <AdditionalInfo>Additional information Favourites</AdditionalInfo>
+        <Favourites></Favourites>
       </ContentInfo>
-      <Sidebar></Sidebar>
+      <FavouritesSideBar list={favouritesData}></FavouritesSideBar>
     </ContentContainer>
   );
 }
@@ -170,7 +169,7 @@ export function GalleryContent() {
     fetchGallery();
   }, [currentPage]);
 
-  const pageArray = Array.from({ length: 64 }, (_, i) => i);
+  const pageArray = Array.from({ length: 105 }, (_, i) => i);
 
   return (
     <ContentContainer>
@@ -181,9 +180,5 @@ export function GalleryContent() {
     </ContentContainer>
   );
 }
-
-GalleryContent.propTypes = {
-  currentPage: PropTypes.number.isRequired,
-};
 
 export default LandingContent;

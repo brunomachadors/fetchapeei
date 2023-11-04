@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const GalleryContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 200px;
   width: 70%;
   height: 70%;
