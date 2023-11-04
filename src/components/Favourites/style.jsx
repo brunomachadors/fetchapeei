@@ -40,3 +40,21 @@ export const ImageContainer = styled.div`
   flex-direction: column;
   gap: 5px;
 `;
+
+export const RemoveButtonHover = styled.button`
+  background: #f9dec9;
+  color: black;
+  padding: 8px 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+
+  &:hover {
+    background: #ffb67e;
+  }
+`;
