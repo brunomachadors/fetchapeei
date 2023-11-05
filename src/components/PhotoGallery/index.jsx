@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import Modal from '../Modal';
-import { GalleryContainer, GalleryImage } from './style';
+import { GalleryContainer, GalleryImage, GalleryImageContainer } from './style';
 import PropTypes from 'prop-types';
 import { LoadingModalContainer } from '../Loading/style';
+import { FavouriteButton } from '../Icons';
 
 const PhotoGallery = ({ images }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -28,12 +29,15 @@ const PhotoGallery = ({ images }) => {
         <LoadingModalContainer />
       ) : (
         images.map((image, index) => (
-          <GalleryImage
-            key={index}
-            src={image.url}
-            alt={`Image ${index}`}
-            onClick={() => openModal(image.url)}
-          />
+          <GalleryImageContainer key={index}>
+            <GalleryImage
+              key={index}
+              src={image.url}
+              alt={`Image ${index}`}
+              onClick={() => openModal(image.url)}
+            />
+            <FavouriteButton></FavouriteButton>
+          </GalleryImageContainer>
         ))
       )}
       <Modal
