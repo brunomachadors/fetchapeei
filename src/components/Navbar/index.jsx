@@ -1,9 +1,7 @@
-//styled components
 import { Menu, NavbarContainer } from './style';
 import { Select } from '../Select/style';
 import { Search } from '../Search';
 
-//Dependencies
 import PropTypes from 'prop-types';
 import {
   BreedsTab,

@@ -21,6 +21,8 @@ import vintageDogImage from '/Users/mindera/Documents/source/bootcamp-fe/Fetch-a
 import FavouriteButton from '../Icons';
 import getAllFavourites from '../../api/favourites';
 import checkFavourite from '../../utils/checkFavourite';
+import { LoadingModalContainer } from '../Loading/style';
+import { useNavigate } from 'react-router-dom';
 
 export function LandingContent() {
   return (
@@ -42,6 +44,7 @@ export function LandingContent() {
 export function BreedsContent() {
   const [breeds, setBreeds] = useState([]);
   const breed = useSelector((state) => state.breed.selectedBreed);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
@@ -53,8 +56,10 @@ export function BreedsContent() {
       }
     }
 
+    navigate(`/breeds?breeds=${breed.name}`);
+
     fetchData();
-  }, []);
+  }, [breed.name, navigate]);
 
   return (
     <ContentContainer>
@@ -91,7 +96,7 @@ export function BreedsContent() {
           </DescriptionRow>
         </Description>
       </ContentInfo>
-      <Sidebar list={breeds}></Sidebar>
+      <Sidebar list={breeds} selectedBreed={breed} />
     </ContentContainer>
   );
 }
@@ -114,6 +119,8 @@ export function PhotosContent() {
   const breed = useSelector((state) => state.breed.selectedBreed);
   const [dogImage, setDogImage] = useState(null);
   const [isFavourite, setIsFavourite] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
@@ -124,30 +131,30 @@ export function PhotosContent() {
         setDogImage(image);
         const response = await getAllFavourites();
         setIsFavourite(checkFavourite(response, image));
+        setIsLoading(false);
+        navigate(`/photos?breeds=${breed.name}`);
       } catch (error) {
         console.error('Error fetching breeds:', error);
       }
     }
 
     fetchData();
-  }, [breed.reference_image_id]);
+  }, [breed.reference_image_id, breed.name, navigate]);
 
   return (
     <ContentContainer>
       <ContentInfo>
         <Title>{breed.name}</Title>
-        {dogImage ? (
-          <SinglePhoto src={dogImage.url} />
-        ) : (
-          <div>Loading image...</div>
-        )}
-        <FavouriteButton
-          image={dogImage?.id}
-          favourite={isFavourite}
-        ></FavouriteButton>
+        {isLoading ? (
+          <LoadingModalContainer></LoadingModalContainer>
+        ) : dogImage ? (
+          <>
+            <SinglePhoto src={dogImage.url} />
+            <FavouriteButton image={dogImage.id} favourite={isFavourite} />
+          </>
+        ) : null}
       </ContentInfo>
-
-      <Sidebar list={breeds} />
+      <Sidebar list={breeds} selectedBreed={breed} />
     </ContentContainer>
   );
 }

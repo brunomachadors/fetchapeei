@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { Bar, Button, Item, List, Name } from './style';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { selectBreed } from '../../store/breed/breed';
 import { selectPage } from '../../store/currentPage/currentPage';
 import {
@@ -11,9 +11,15 @@ import {
 } from '../Modal/style';
 import { useNavigate } from 'react-router-dom';
 
-function Sidebar({ list = [] }) {
+function Sidebar({ list = [], selectedBreed }) {
+  console.log(selectedBreed);
   const dispatch = useDispatch();
   const [selectedBreedId, setSelectedBreedId] = useState(null);
+
+  useEffect(() => {
+    dispatch(selectBreed(selectedBreed));
+    setSelectedBreedId(selectedBreed.id);
+  }, [dispatch, selectedBreed]);
 
   const handleButtonClick = (item) => {
     dispatch(selectBreed(item));
@@ -42,6 +48,7 @@ function Sidebar({ list = [] }) {
 
 Sidebar.propTypes = {
   list: PropTypes.array,
+  selectedBreed: PropTypes.object,
 };
 
 export function FavouritesSideBar({ list = [] }) {

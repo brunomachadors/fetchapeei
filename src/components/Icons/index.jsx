@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 export const FavouriteButton = ({ image, favourite }) => {
   const [isFavourite, setIsFavourite] = useState(favourite);
+  console.log('FAVOURITE:' + favourite);
 
   const toggleFavorite = async () => {
     if (favourite) {
