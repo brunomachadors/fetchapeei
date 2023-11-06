@@ -84,10 +84,11 @@ FavouritesSideBar.propTypes = {
   list: PropTypes.array,
 };
 
-export function PageSideBar({ list = [] }) {
+export function PageSideBar() {
   const dispatch = useDispatch();
   const [selectedPage, setSelectedPage] = useState(null);
   const navigate = useNavigate();
+  const list = Array.from({ length: 102 }, (_, i) => i);
 
   const handleButtonClick = (item) => {
     dispatch(selectPage(item));

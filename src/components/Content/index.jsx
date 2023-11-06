@@ -13,12 +13,14 @@ import { ContentContainer, ContentInfo } from './style';
 import { getAllBreeds } from '../../api/breeds';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getPhotoById, getPhotoGallery } from '../../api/photos';
+import { getPhotoById } from '../../api/photos';
 import PhotoGallery from '../PhotoGallery';
 import { SinglePhoto } from '../Photo/style';
 import Favourites from '../Favourites';
 import vintageDogImage from '/Users/mindera/Documents/source/bootcamp-fe/Fetch-a-pee-I/src/assets/backgrondDog.png';
-import { useNavigate } from 'react-router-dom';
+import FavouriteButton from '../Icons';
+import getAllFavourites from '../../api/favourites';
+import checkFavourite from '../../utils/checkFavourite';
 
 export function LandingContent() {
   return (
@@ -111,15 +113,17 @@ export function PhotosContent() {
   const [breeds, setBreeds] = useState([]);
   const breed = useSelector((state) => state.breed.selectedBreed);
   const [dogImage, setDogImage] = useState(null);
+  const [isFavourite, setIsFavourite] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const data = await getAllBreeds();
         setBreeds(data);
-
         const image = await getPhotoById(breed.reference_image_id);
         setDogImage(image);
+        const response = await getAllFavourites();
+        setIsFavourite(checkFavourite(response, image));
       } catch (error) {
         console.error('Error fetching breeds:', error);
       }
@@ -137,41 +141,24 @@ export function PhotosContent() {
         ) : (
           <div>Loading image...</div>
         )}
+        <FavouriteButton
+          image={dogImage?.id}
+          favourite={isFavourite}
+        ></FavouriteButton>
       </ContentInfo>
+
       <Sidebar list={breeds} />
     </ContentContainer>
   );
 }
 
 export function GalleryContent() {
-  const [images, setImages] = useState([]);
-  const currentPage = useSelector((state) => state.page.value);
-  const navigate = useNavigate();
-
-  const reloadKey = currentPage;
-
-  useEffect(() => {
-    async function fetchGallery() {
-      try {
-        const gallery = await getPhotoGallery(currentPage);
-        setImages(gallery);
-      } catch (error) {
-        console.error('Error fetching gallery:', error);
-      }
-    }
-
-    navigate(`/Gallery?page=${currentPage}`);
-    fetchGallery();
-  }, [currentPage, navigate, reloadKey]);
-
-  const pageArray = Array.from({ length: 105 }, (_, i) => i);
-
   return (
     <ContentContainer>
       <ContentInfo>
-        <PhotoGallery images={images} key={reloadKey}></PhotoGallery>
+        <PhotoGallery></PhotoGallery>
       </ContentInfo>
-      <PageSideBar list={pageArray}></PageSideBar>
+      <PageSideBar></PageSideBar>
     </ContentContainer>
   );
 }

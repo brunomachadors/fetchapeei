@@ -1,34 +1,32 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FavoriteIcon } from './style';
 import getAllFavourites, {
   deleteFavourite,
   postFavourite,
 } from '../../api/favourites';
+import { useState } from 'react';
 
 export const FavouriteButton = ({ image, favourite }) => {
-  const [isFavorite, setIsFavorite] = useState(favourite);
+  const [isFavourite, setIsFavourite] = useState(favourite);
 
   const toggleFavorite = async () => {
-    setIsFavorite(!isFavorite);
-
     if (favourite) {
       const favourites = await getAllFavourites();
-      const filteredData = favourites.filter(
-        (item) => item.image_id === image.id
-      );
-      console.log(filteredData[0]);
+      const filteredData = favourites.filter((item) => item.image_id === image);
+      console.log(filteredData);
       deleteFavourite(filteredData[0].id);
+      setIsFavourite(false);
     } else {
-      postFavourite(image.id);
+      postFavourite(image);
+      setIsFavourite(true);
     }
   };
 
   return (
     <FavoriteIcon
       onClick={toggleFavorite}
-      isfavourite={isFavorite}
-      style={{ transform: isFavorite ? 'scale(1.2)' : 'scale(1)' }}
+      isfavourite={isFavourite}
+      style={{ transform: isFavourite ? 'scale(1.2)' : 'scale(1)' }}
     />
   );
 };

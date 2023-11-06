@@ -7,35 +7,38 @@ import { FavouriteButton } from '../Icons';
 import getAllFavourites from '../../api/favourites';
 import { setFavourites } from '../../store/favourites/favourites';
 import { useDispatch, useSelector } from 'react-redux';
+import checkFavourite from '../../utils/checkFavourite';
+import { useNavigate } from 'react-router-dom';
+import { getPhotoGallery } from '../../api/photos';
 
-const PhotoGallery = ({ images }) => {
+const PhotoGallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const favouriteList = useSelector((state) => state.favourites.data);
+  const [favouriteList, setFavouriteList] = useState([]);
+  const [images, setImages] = useState([]);
   const dispatch = useDispatch();
+  const currentPage = useSelector((state) => state.page.value);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchData = async () => {
+    const refreshGallery = async (page) => {
       try {
-        const favorites = await getAllFavourites();
-        dispatch(setFavourites(favorites));
+        setIsLoading(true);
+        const gallery = await getPhotoGallery(page);
+        setImages(gallery);
+        const response = await getAllFavourites();
+        dispatch(setFavourites(response));
+        setFavouriteList(response);
         setIsLoading(false);
       } catch (error) {
-        console.error('Error fetching favorites:', error);
+        console.error('Error fetching data:', error);
         setIsLoading(false);
       }
     };
 
-    fetchData();
-  }, [dispatch]);
-
-  const checkFavourite = (image) => {
-    const isFavourite = favouriteList.some(
-      (favorite) => favorite.image_id === image.id
-    );
-
-    return isFavourite;
-  };
+    navigate(`/Gallery?page=${currentPage}`);
+    refreshGallery(currentPage);
+  }, [dispatch, currentPage, navigate]);
 
   const openModal = (imageSrc) => {
     setSelectedImage(imageSrc);
@@ -50,22 +53,19 @@ const PhotoGallery = ({ images }) => {
       {isLoading ? (
         <LoadingModalContainer />
       ) : (
-        images.map((image, index) => {
-          return (
-            <GalleryImageContainer key={index}>
-              <GalleryImage
-                key={index}
-                src={image.url}
-                alt={`Image ${index}`}
-                onClick={() => openModal(image.url)}
-              />
-              <FavouriteButton
-                image={image}
-                favourite={checkFavourite(image)}
-              ></FavouriteButton>
-            </GalleryImageContainer>
-          );
-        })
+        images.map((image, index) => (
+          <GalleryImageContainer key={index}>
+            <GalleryImage
+              src={image.url}
+              alt={`Image ${index}`}
+              onClick={() => openModal(image.url)}
+            />
+            <FavouriteButton
+              image={image.id}
+              favourite={checkFavourite(favouriteList, image)}
+            ></FavouriteButton>
+          </GalleryImageContainer>
+        ))
       )}
       <Modal
         isOpen={selectedImage !== null}

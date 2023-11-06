@@ -5,12 +5,13 @@ export const Bar = styled.div`
   min-width: 320px;
   height: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   color: white;
   overflow-y: auto;
   box-sizing: border-box;
   background-color: #303030;
   z-index: 1;
+  position: relative;
 
   @media (max-width: 1080px) {
     height: 83%;
@@ -40,6 +41,7 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   margin-block-start: 0;
   margin-block-end: 0;
   padding-inline-start: 0;

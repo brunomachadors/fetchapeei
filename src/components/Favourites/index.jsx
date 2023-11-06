@@ -26,7 +26,6 @@ export default function Favourites() {
   }, [dispatch]);
 
   const handleRemoveFromFavorites = (image) => {
-    console.log(image);
     const updatedFavouriteImages = [...favouriteImages];
     updatedFavouriteImages.splice(image.index, 1);
     setFavouriteImages(updatedFavouriteImages);
@@ -45,7 +44,7 @@ export default function Favourites() {
             onClick={() => handleImageClick(favourite.image, index)}
           />
           <FavouriteButton
-            image={favourite.image}
+            image={favourite.image.id}
             favourite
             onClick={() => handleRemoveFromFavorites(favourite.image)}
           ></FavouriteButton>

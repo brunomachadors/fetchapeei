@@ -30,6 +30,7 @@ export const GalleryImage = styled.img`
   max-height: 80%;
   background: transparent;
   display: flex;
+  min-width: 700px;
 `;
 
 export const Backdrop = styled.div`
