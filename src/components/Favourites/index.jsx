@@ -25,28 +25,29 @@ export default function Favourites() {
     fetchFavourites();
   }, [dispatch]);
 
-  const handleRemoveFromFavorites = (index) => {
+  const handleRemoveFromFavorites = (image) => {
+    console.log(image);
     const updatedFavouriteImages = [...favouriteImages];
-    updatedFavouriteImages.splice(index, 1);
+    updatedFavouriteImages.splice(image.index, 1);
     setFavouriteImages(updatedFavouriteImages);
   };
 
   const handleImageClick = (image, index) => {
     setSelectedImage({ image, index });
-    console.log(selectedImage);
   };
 
   return (
     <FavouritesContainer>
       {favouriteImages.map((favourite, index) => (
-        <ImageContainer
-          key={index}
-          onClick={() => handleImageClick(favourite.image, index)}
-        >
-          <FavouritePhoto src={favourite.image.url} />
+        <ImageContainer key={index}>
+          <FavouritePhoto
+            src={favourite.image.url}
+            onClick={() => handleImageClick(favourite.image, index)}
+          />
           <FavouriteButton
+            image={favourite.image}
             favourite
-            onClick={() => handleRemoveFromFavorites(index)}
+            onClick={() => handleRemoveFromFavorites(favourite.image)}
           ></FavouriteButton>
         </ImageContainer>
       ))}
@@ -57,10 +58,6 @@ export default function Favourites() {
               src={selectedImage.image.url}
               alt="Selected Favorite"
             ></GalleryImage>
-            <FavouriteButton
-              favourite
-              onClick={() => handleRemoveFromFavorites(selectedImage.index)}
-            ></FavouriteButton>
           </GalleryModalContent>
         </GalleryModalBackground>
       )}

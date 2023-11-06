@@ -1,14 +1,13 @@
 import Sidebar, { FavouritesSideBar, PageSideBar } from '../SideBar';
 import {
-  AdditionalInfo,
   Description,
   DescriptionLabel,
   DescriptionRow,
   DescriptionValue,
+  LandingContainer,
   LandingDescription,
-  LandingLi,
-  LandingUl,
   Title,
+  VintageDog,
 } from './style';
 import { ContentContainer, ContentInfo } from './style';
 import { getAllBreeds } from '../../api/breeds';
@@ -18,31 +17,23 @@ import { getPhotoById, getPhotoGallery } from '../../api/photos';
 import PhotoGallery from '../PhotoGallery';
 import { SinglePhoto } from '../Photo/style';
 import Favourites from '../Favourites';
+import vintageDogImage from '/Users/mindera/Documents/source/bootcamp-fe/Fetch-a-pee-I/src/assets/backgrondDog.png';
+import { useNavigate } from 'react-router-dom';
 
 export function LandingContent() {
   return (
-    <ContentContainer style={{ backgroundColor: 'rgba(253, 243, 233, 1)' }}>
-      <ContentInfo>
-        <Title>Welcome to Fetch A P I</Title>
-        <Description style={{ fontFamily: 'Play', margin: '0 10vw' }}>
-          <LandingDescription>
-            This responsive website was a part of our Front-end Bootcamp
-            projects @MinderaSchool, it uses pretty much all the components that
-            we studied during of this course.
-          </LandingDescription>
-        </Description>
-        <AdditionalInfo>
-          <LandingUl>
-            <LandingLi>API</LandingLi>
-            <LandingLi>HTML</LandingLi>
-            <LandingLi>Redux</LandingLi>
-            <LandingLi>UseState & UseEffect</LandingLi>
-            <LandingLi>Styled Components</LandingLi>
-            <LandingLi>VITE & React</LandingLi>
-          </LandingUl>
-        </AdditionalInfo>
-      </ContentInfo>
-    </ContentContainer>
+    <LandingContainer>
+      <LandingDescription>
+        Welcome to &quot;Fetch a Pee I,&quot; your one-stop destination for
+        discovering dog breeds and collecting your favorite dog photos. Explore
+        a vast database of dog breeds, view stunning images, and easily add your
+        furry friends to your favorites. Whether you&quot;re a seasoned dog
+        lover or a curious explorer, &quot;Fetch a Pee I&quot; is here to make
+        your journey into the world of dogs a paw-some experience!
+      </LandingDescription>
+
+      <VintageDog src={vintageDogImage}></VintageDog>
+    </LandingContainer>
   );
 }
 
@@ -155,6 +146,9 @@ export function PhotosContent() {
 export function GalleryContent() {
   const [images, setImages] = useState([]);
   const currentPage = useSelector((state) => state.page.value);
+  const navigate = useNavigate();
+
+  const reloadKey = currentPage;
 
   useEffect(() => {
     async function fetchGallery() {
@@ -166,15 +160,16 @@ export function GalleryContent() {
       }
     }
 
+    navigate(`/Gallery?page=${currentPage}`);
     fetchGallery();
-  }, [currentPage]);
+  }, [currentPage, navigate, reloadKey]);
 
   const pageArray = Array.from({ length: 105 }, (_, i) => i);
 
   return (
     <ContentContainer>
       <ContentInfo>
-        <PhotoGallery images={images}></PhotoGallery>
+        <PhotoGallery images={images} key={reloadKey}></PhotoGallery>
       </ContentInfo>
       <PageSideBar list={pageArray}></PageSideBar>
     </ContentContainer>

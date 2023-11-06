@@ -9,7 +9,7 @@ import {
   GalleryModalBackground,
   GalleryModalContent,
 } from '../Modal/style';
-import FavouriteButton from '../Icons';
+import { useNavigate } from 'react-router-dom';
 
 function Sidebar({ list = [] }) {
   const dispatch = useDispatch();
@@ -51,10 +51,6 @@ export function FavouritesSideBar({ list = [] }) {
     setSelectedImage(image.image);
   };
 
-  const handleRemoveFromFavorites = () => {
-    setSelectedImage(null);
-  };
-
   return (
     <Bar>
       <List>
@@ -65,7 +61,7 @@ export function FavouritesSideBar({ list = [] }) {
             onClick={() => handleFavoriteClick(item)}
           >
             <Item>
-              <Name>Favorite: {index + 1}</Name>
+              <Name>Favorite: {index}</Name>
             </Item>
           </Button>
         ))}
@@ -77,10 +73,6 @@ export function FavouritesSideBar({ list = [] }) {
               src={selectedImage.url}
               alt="Selected Favorite"
             ></GalleryImage>
-            <FavouriteButton
-              favourite
-              onClick={handleRemoveFromFavorites}
-            ></FavouriteButton>
           </GalleryModalContent>
         </GalleryModalBackground>
       )}
@@ -95,10 +87,12 @@ FavouritesSideBar.propTypes = {
 export function PageSideBar({ list = [] }) {
   const dispatch = useDispatch();
   const [selectedPage, setSelectedPage] = useState(null);
+  const navigate = useNavigate();
 
   const handleButtonClick = (item) => {
     dispatch(selectPage(item));
     setSelectedPage(item);
+    navigate(`/Gallery?page=${selectedPage}`);
   };
 
   return (

@@ -5,14 +5,15 @@ import favouriteIconGold from '../../assets/icons/favouriteGold.png';
 export const FavoriteIcon = styled.button`
   width: 24px;
   height: 24px;
-  background: url(${favoriteIconImage}) no-repeat center center;
+  background: ${(props) =>
+    props.isfavourite
+      ? `url(${favouriteIconGold})`
+      : `url(${favoriteIconImage})`};
   background-size: cover;
   cursor: pointer;
   transition: transform 0.2s, background-color 0.2s;
-
   border: none;
   outline: none;
-
   margin-top: 10px;
   position: relative;
 
@@ -23,10 +24,4 @@ export const FavoriteIcon = styled.button`
   &:active {
     transform: scale(1.2);
   }
-
-  ${({ isFavorite }) =>
-    isFavorite &&
-    `
-    background-image: url(${favouriteIconGold});
-  `}
 `;

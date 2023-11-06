@@ -87,24 +87,31 @@ export const Description = styled.div`
   }
 `;
 
-export const LandingDescription = styled.h2`
+export const LandingDescription = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  width: 60%;
+  width: 50%;
   justify-content: center;
   text-align: center;
-  font-family: sans-serif;
-
-  @media (max-width: 1080px) {
-    align-items: center;
-  }
+  margin-top: 150px;
+  font-size: 25px;
 `;
 
-export const AdditionalInfo = styled.div``;
+export const VintageDog = styled.img`
+  width: 25%;
+  display: flex;
+  margin-bottom: 0px;
+`;
 
-export const LandingUl = styled.ul``;
-
-export const LandingLi = styled.li``;
+export const LandingContainer = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 export const DescriptionRow = styled.div`
   display: flex;
