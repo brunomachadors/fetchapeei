@@ -18,9 +18,6 @@ import PhotoGallery from '../PhotoGallery';
 import { SinglePhoto } from '../Photo/style';
 import Favourites from '../Favourites';
 import vintageDogImage from '/Users/mindera/Documents/source/bootcamp-fe/Fetch-a-pee-I/src/assets/backgrondDog.png';
-import FavouriteButton from '../Icons';
-import getAllFavourites from '../../api/favourites';
-import checkFavourite from '../../utils/checkFavourite';
 import { LoadingModalContainer } from '../Loading/style';
 import { useNavigate } from 'react-router-dom';
 
@@ -118,7 +115,7 @@ export function PhotosContent() {
   const [breeds, setBreeds] = useState([]);
   const breed = useSelector((state) => state.breed.selectedBreed);
   const [dogImage, setDogImage] = useState(null);
-  const [isFavourite, setIsFavourite] = useState(false);
+
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -129,8 +126,7 @@ export function PhotosContent() {
         setBreeds(data);
         const image = await getPhotoById(breed.reference_image_id);
         setDogImage(image);
-        const response = await getAllFavourites();
-        setIsFavourite(checkFavourite(response, image));
+
         setIsLoading(false);
         navigate(`/photos?breeds=${breed.name}`);
       } catch (error) {
@@ -148,10 +144,7 @@ export function PhotosContent() {
         {isLoading ? (
           <LoadingModalContainer></LoadingModalContainer>
         ) : dogImage ? (
-          <>
-            <SinglePhoto src={dogImage.url} />
-            <FavouriteButton image={dogImage.id} favourite={isFavourite} />
-          </>
+          <SinglePhoto src={dogImage.url} />
         ) : null}
       </ContentInfo>
       <Sidebar list={breeds} selectedBreed={breed} />

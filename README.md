@@ -19,7 +19,7 @@ yarn dev
 - [x] Breeds
 - [x] Photos
 - [x] Gallery
-- [ ] Favourites
+- [x] Favourites
 
 ## Team Members
 
@@ -81,6 +81,20 @@ These actions are dispatched by components and processed by reducers, which are 
 
 [Redux Website](https://redux.js.org/)
 
-# PREVIEW
+## PREVIEW
 
-![FETCH A PEE I](public/previewMobile.png)
+### LANDING PAGE
+
+![FETCH A PEE I](public/previews/LandingPage.png)
+
+### BREEDS
+
+![FETCH A PEE I](public/previews/BreedsPage.png)
+
+### FAVOURITES
+
+![FETCH A PEE I](public/previews/Favourites.png)
+
+### MOBILE
+
+![FETCH A PEE I](public/previews/previewMobile.png)
