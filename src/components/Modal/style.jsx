@@ -19,7 +19,6 @@ export const GalleryModalContent = styled.div`
   max-width: 100%;
   max-height: 100%;
   overflow: auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,6 +30,7 @@ export const GalleryImage = styled.img`
   max-height: 80%;
   background: transparent;
   display: flex;
+  min-width: 700px;
 `;
 
 export const Backdrop = styled.div`

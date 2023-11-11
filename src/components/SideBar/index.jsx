@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { Bar, Button, Item, List, Name } from './style';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { selectBreed } from '../../store/breed/breed';
 import { selectPage } from '../../store/currentPage/currentPage';
 import {
@@ -9,11 +9,17 @@ import {
   GalleryModalBackground,
   GalleryModalContent,
 } from '../Modal/style';
-import { RemoveButtonHover } from '../Favourites/style';
+import { useNavigate } from 'react-router-dom';
 
-function Sidebar({ list = [] }) {
+function Sidebar({ list = [], selectedBreed }) {
+  console.log(selectedBreed);
   const dispatch = useDispatch();
   const [selectedBreedId, setSelectedBreedId] = useState(null);
+
+  useEffect(() => {
+    dispatch(selectBreed(selectedBreed));
+    setSelectedBreedId(selectedBreed.id);
+  }, [dispatch, selectedBreed]);
 
   const handleButtonClick = (item) => {
     dispatch(selectBreed(item));
@@ -42,6 +48,7 @@ function Sidebar({ list = [] }) {
 
 Sidebar.propTypes = {
   list: PropTypes.array,
+  selectedBreed: PropTypes.object,
 };
 
 export function FavouritesSideBar({ list = [] }) {
@@ -49,10 +56,6 @@ export function FavouritesSideBar({ list = [] }) {
 
   const handleFavoriteClick = (image) => {
     setSelectedImage(image.image);
-  };
-
-  const handleRemoveFromFavorites = () => {
-    setSelectedImage(null);
   };
 
   return (
@@ -65,7 +68,7 @@ export function FavouritesSideBar({ list = [] }) {
             onClick={() => handleFavoriteClick(item)}
           >
             <Item>
-              <Name>Favorite: {index + 1}</Name>
+              <Name>Favorite: {index}</Name>
             </Item>
           </Button>
         ))}
@@ -77,9 +80,6 @@ export function FavouritesSideBar({ list = [] }) {
               src={selectedImage.url}
               alt="Selected Favorite"
             ></GalleryImage>
-            <RemoveButtonHover onClick={handleRemoveFromFavorites}>
-              Remove from Favorites
-            </RemoveButtonHover>
           </GalleryModalContent>
         </GalleryModalBackground>
       )}
@@ -91,13 +91,16 @@ FavouritesSideBar.propTypes = {
   list: PropTypes.array,
 };
 
-export function PageSideBar({ list = [] }) {
+export function PageSideBar() {
   const dispatch = useDispatch();
   const [selectedPage, setSelectedPage] = useState(null);
+  const navigate = useNavigate();
+  const list = Array.from({ length: 102 }, (_, i) => i);
 
   const handleButtonClick = (item) => {
     dispatch(selectPage(item));
     setSelectedPage(item);
+    navigate(`/Gallery?page=${selectedPage}`);
   };
 
   return (

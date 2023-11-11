@@ -1,54 +1,47 @@
 import Sidebar, { FavouritesSideBar, PageSideBar } from '../SideBar';
 import {
-  AdditionalInfo,
   Description,
   DescriptionLabel,
   DescriptionRow,
   DescriptionValue,
+  LandingContainer,
   LandingDescription,
-  LandingLi,
-  LandingUl,
   Title,
+  VintageDog,
 } from './style';
 import { ContentContainer, ContentInfo } from './style';
 import { getAllBreeds } from '../../api/breeds';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getPhotoById, getPhotoGallery } from '../../api/photos';
+import { getPhotoById } from '../../api/photos';
 import PhotoGallery from '../PhotoGallery';
 import { SinglePhoto } from '../Photo/style';
 import Favourites from '../Favourites';
+import vintageDogImage from '/Users/mindera/Documents/source/bootcamp-fe/Fetch-a-pee-I/src/assets/backgrondDog.png';
+import { LoadingModalContainer } from '../Loading/style';
+import { useNavigate } from 'react-router-dom';
 
 export function LandingContent() {
   return (
-    <ContentContainer style={{ backgroundColor: 'rgba(253, 243, 233, 1)' }}>
-      <ContentInfo>
-        <Title>Welcome to Fetch A P I</Title>
-        <Description style={{ fontFamily: 'Play', margin: '0 10vw' }}>
-          <LandingDescription>
-            This responsive website was a part of our Front-end Bootcamp
-            projects @MinderaSchool, it uses pretty much all the components that
-            we studied during of this course.
-          </LandingDescription>
-        </Description>
-        <AdditionalInfo>
-          <LandingUl>
-            <LandingLi>API</LandingLi>
-            <LandingLi>HTML</LandingLi>
-            <LandingLi>Redux</LandingLi>
-            <LandingLi>UseState & UseEffect</LandingLi>
-            <LandingLi>Styled Components</LandingLi>
-            <LandingLi>VITE & React</LandingLi>
-          </LandingUl>
-        </AdditionalInfo>
-      </ContentInfo>
-    </ContentContainer>
+    <LandingContainer>
+      <LandingDescription>
+        Welcome to &quot;Fetch a Pee I,&quot; your one-stop destination for
+        discovering dog breeds and collecting your favorite dog photos. Explore
+        a vast database of dog breeds, view stunning images, and easily add your
+        furry friends to your favorites. Whether you&quot;re a seasoned dog
+        lover or a curious explorer, &quot;Fetch a Pee I&quot; is here to make
+        your journey into the world of dogs a paw-some experience!
+      </LandingDescription>
+
+      <VintageDog src={vintageDogImage}></VintageDog>
+    </LandingContainer>
   );
 }
 
 export function BreedsContent() {
   const [breeds, setBreeds] = useState([]);
   const breed = useSelector((state) => state.breed.selectedBreed);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
@@ -60,8 +53,10 @@ export function BreedsContent() {
       }
     }
 
+    navigate(`/breeds?breeds=${breed.name}`);
+
     fetchData();
-  }, []);
+  }, [breed.name, navigate]);
 
   return (
     <ContentContainer>
@@ -98,7 +93,7 @@ export function BreedsContent() {
           </DescriptionRow>
         </Description>
       </ContentInfo>
-      <Sidebar list={breeds}></Sidebar>
+      <Sidebar list={breeds} selectedBreed={breed} />
     </ContentContainer>
   );
 }
@@ -121,62 +116,49 @@ export function PhotosContent() {
   const breed = useSelector((state) => state.breed.selectedBreed);
   const [dogImage, setDogImage] = useState(null);
 
+  const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
+
   useEffect(() => {
     async function fetchData() {
       try {
         const data = await getAllBreeds();
         setBreeds(data);
-
         const image = await getPhotoById(breed.reference_image_id);
         setDogImage(image);
+
+        setIsLoading(false);
+        navigate(`/photos?breeds=${breed.name}`);
       } catch (error) {
         console.error('Error fetching breeds:', error);
       }
     }
 
     fetchData();
-  }, [breed.reference_image_id]);
+  }, [breed.reference_image_id, breed.name, navigate]);
 
   return (
     <ContentContainer>
       <ContentInfo>
         <Title>{breed.name}</Title>
-        {dogImage ? (
+        {isLoading ? (
+          <LoadingModalContainer></LoadingModalContainer>
+        ) : dogImage ? (
           <SinglePhoto src={dogImage.url} />
-        ) : (
-          <div>Loading image...</div>
-        )}
+        ) : null}
       </ContentInfo>
-      <Sidebar list={breeds} />
+      <Sidebar list={breeds} selectedBreed={breed} />
     </ContentContainer>
   );
 }
 
 export function GalleryContent() {
-  const [images, setImages] = useState([]);
-  const currentPage = useSelector((state) => state.page.value);
-
-  useEffect(() => {
-    async function fetchGallery() {
-      try {
-        const gallery = await getPhotoGallery(currentPage);
-        setImages(gallery);
-      } catch (error) {
-        console.error('Error fetching gallery:', error);
-      }
-    }
-
-    fetchGallery();
-  }, [currentPage]);
-
-  const pageArray = Array.from({ length: 105 }, (_, i) => i);
-
   return (
     <ContentContainer>
       <ContentInfo>
-        <PhotoGallery images={images}></PhotoGallery>
+        <PhotoGallery></PhotoGallery>
       </ContentInfo>
-      <PageSideBar list={pageArray}></PageSideBar>
+      <PageSideBar></PageSideBar>
     </ContentContainer>
   );
 }
