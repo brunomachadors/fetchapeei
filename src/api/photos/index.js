@@ -23,7 +23,6 @@ export const getAllPhotos = async () => {
 export const getPhotoGallery = async (page) => {
   let config = {
     method: 'get',
-    maxBodyLength: Infinity,
     url:
       getBaseApiUrl() +
       API_PATHS.images +
@@ -36,7 +35,7 @@ export const getPhotoGallery = async (page) => {
   };
 
   try {
-    const response = await axios.get(config.url, config);
+    const response = await axios(config.url, config);
     return response.data;
   } catch (error) {
     console.error(error);
