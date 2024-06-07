@@ -1,20 +1,22 @@
 import axios from 'axios';
-import { getApiKey, getBaseApiUrl } from '../../utils/getEnvVariables';
 import { API_PATHS } from '../../constants';
 
-const getAllFavourites = async () => {
-  let config = {
+const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
+const apiKey = import.meta.env.VITE_API_KEY;
+
+export const getAllFavourites = async () => {
+  const config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: getBaseApiUrl() + API_PATHS.favourites,
+    url: `${baseApiUrl}${API_PATHS.favourites}`,
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': getApiKey(),
+      'x-api-key': apiKey,
     },
   };
 
   try {
-    const response = await axios(config.url, config);
+    const response = await axios(config);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -23,24 +25,24 @@ const getAllFavourites = async () => {
 };
 
 export const postFavourite = async (imageId, subId = 'brunomachado') => {
-  let data = JSON.stringify({
+  const data = JSON.stringify({
     image_id: imageId,
     sub_id: subId,
   });
 
-  let config = {
+  const config = {
     method: 'post',
     maxBodyLength: Infinity,
-    url: getBaseApiUrl() + API_PATHS.favourites,
+    url: `${baseApiUrl}${API_PATHS.favourites}`,
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': getApiKey(),
+      'x-api-key': apiKey,
     },
     data: data,
   };
 
   try {
-    const response = await axios(config.url, config);
+    const response = await axios(config);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -49,12 +51,12 @@ export const postFavourite = async (imageId, subId = 'brunomachado') => {
 };
 
 export const deleteFavourite = async (imageId) => {
-  let config = {
+  const config = {
     method: 'delete',
-    url: getBaseApiUrl() + API_PATHS.favourites + `/${String(imageId)}`,
+    url: `${baseApiUrl}${API_PATHS.favourites}/${String(imageId)}`,
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': getApiKey(),
+      'x-api-key': apiKey,
     },
   };
 

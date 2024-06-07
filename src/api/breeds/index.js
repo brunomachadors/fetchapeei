@@ -1,14 +1,14 @@
-import axios from "axios";
-import { getBaseApiUrl } from "../../utils/getEnvVariables";
-import { API_PATHS } from "../../constants";
+import axios from 'axios';
+import { getBaseApiUrl } from '../../utils/getEnvVariables';
+import { API_PATHS } from '../../constants';
 
 export const getAllBreeds = async () => {
   let config = {
-    method: "get",
+    method: 'get',
     maxBodyLength: Infinity,
     url: getBaseApiUrl() + API_PATHS.breeds,
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   };
 

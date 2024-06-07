@@ -1,12 +1,14 @@
 import axios from 'axios';
-import { getApiKey, getBaseApiUrl } from '../../utils/getEnvVariables';
 import { API_PATHS } from '../../constants';
 
+const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
+const apiKey = import.meta.env.VITE_API_KEY;
+
 export const getAllPhotos = async () => {
-  let config = {
+  const config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: getBaseApiUrl() + API_PATHS.images,
+    url: `${baseApiUrl}${API_PATHS.images}`,
     headers: {
       'Content-Type': 'application/json',
     },
@@ -21,16 +23,12 @@ export const getAllPhotos = async () => {
 };
 
 export const getPhotoGallery = async (page) => {
-  let config = {
+  const config = {
     method: 'get',
-    url:
-      getBaseApiUrl() +
-      API_PATHS.images +
-      `/search?order=ASC&page=${page}&limit=12`,
-
+    url: `${baseApiUrl}${API_PATHS.images}/search?order=ASC&page=${page}&limit=12`,
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': getApiKey(),
+      'x-api-key': apiKey,
     },
   };
 
@@ -43,12 +41,12 @@ export const getPhotoGallery = async (page) => {
 };
 
 export const getPhotoById = async (imageId) => {
-  let config = {
+  const config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: getBaseApiUrl() + API_PATHS.images + `/${imageId}`,
+    url: `${baseApiUrl}${API_PATHS.images}/${imageId}`,
     headers: {
-      'x-api-key': getApiKey(),
+      'x-api-key': apiKey,
     },
   };
 

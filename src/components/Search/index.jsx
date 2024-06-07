@@ -14,7 +14,7 @@ export function Search() {
         <SearchInput type="text" placeholder="Search..."></SearchInput>
       )}
       <LensIcon
-        src="src/assets/icons/searchIcon.png"
+        src="../src/assets/icons/searchIcon.png"
         onClick={toggleInputVisibility}
       ></LensIcon>
     </SearchContainer>
