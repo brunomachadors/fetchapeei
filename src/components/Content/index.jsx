@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Sidebar, { FavouritesSideBar, PageSideBar } from '../SideBar';
 import {
   Description,
@@ -11,15 +14,12 @@ import {
 } from './style';
 import { ContentContainer, ContentInfo } from './style';
 import { getAllBreeds } from '../../api/breeds';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { getPhotoById } from '../../api/photos';
 import PhotoGallery from '../PhotoGallery';
 import { SinglePhoto } from '../Photo/style';
 import Favourites from '../Favourites';
-import vintageDogImage from '/Users/mindera/Documents/source/bootcamp-fe/Fetch-a-pee-I/src/assets/backgrondDog.png';
+import vintageDogImage from '../../assets/backgrondDog.png'; // Caminho relativo correto
 import { LoadingModalContainer } from '../Loading/style';
-import { useNavigate } from 'react-router-dom';
 
 export function LandingContent() {
   return (
