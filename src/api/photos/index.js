@@ -35,7 +35,7 @@ export const getPhotoGallery = async (page) => {
   };
 
   try {
-    const response = await axios(config.url, config);
+    const response = await axios.get(config.url, config);
     return response.data;
   } catch (error) {
     console.error(error);

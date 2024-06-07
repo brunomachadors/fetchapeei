@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LandingPage from '../pages/LandingPage';
 import Breeds from '../pages/Breeds';
 import Favourites from '../pages/Favorites';
@@ -7,15 +7,15 @@ import Gallery from '../pages/Gallery';
 
 function AllRoutes() {
   return (
-    <BrowserRouter>
+    <Router basename="/fetchapeei">
       <Routes>
-        <Route path="/" element={<LandingPage />}></Route>
-        <Route path="/breeds" element={<Breeds />}></Route>
-        <Route path="/favourites" element={<Favourites />}></Route>
-        <Route path="/photos" element={<Photos />}></Route>
-        <Route path="/Gallery" element={<Gallery />}></Route>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/breeds" element={<Breeds />} />
+        <Route path="/favourites" element={<Favourites />} />
+        <Route path="/photos" element={<Photos />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
