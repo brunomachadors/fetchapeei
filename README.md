@@ -34,7 +34,7 @@ yarn dev
 
 ### LIRA
 
-![SraDonaLira](https://github.com/brunomachadors/fetch-a-pee-i/assets/122362657/95cfb77a-5cb3-4d89-8872-c27fec679350)
+![SraDonaLira](https://github.com/brunomachadors/fetchapeei/assets/122362657/95cfb77a-5cb3-4d89-8872-c27fec679350)
 
 ### DOG API
 
