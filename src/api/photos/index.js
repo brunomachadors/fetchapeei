@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { API_PATHS } from '../../constants';
 
-const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
-const apiKey = import.meta.env.VITE_API_KEY;
+const baseApiUrl = 'https://api.thedogapi.com/v1';
+const apiKey =
+  'live_JI0J3d6qcQtSWgRvAA5d0PAy4UWzJeq5uesgqIxQTAPGJrC1lsGbqm3R5eVOWQlB';
 
 export const getAllPhotos = async () => {
   const config = {
